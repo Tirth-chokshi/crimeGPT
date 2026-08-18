@@ -104,70 +104,69 @@ Key components:
 
 ---
 
-## Getting started
+---
 
-### Prerequisites
+## 🚀 Quick Start & Installation
 
-- Git and Docker
-- Python 3.10+ and Node.js (if you develop outside Docker)
-- PostgreSQL 15+ with pgvector extension enabled[cite:9]
-- Optional: Keycloak for auth, a running Docassemble instance
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/crimegpt.git
-cd crimegpt
+### Option 1: 🤖 AI Agent Automated Setup (Recommended for AI Assistants)
+If you are using an AI Coding Assistant (Antigravity, Claude Code, Cursor, Windsurf, Copilot, Codex), simply open or pass [**`AGENT_SETUP.md`**](file:///d:/Code%20Playground/anti-movie/crimegpt/AGENT_SETUP.md):
+```markdown
+"Please set up CrimeGPT on this machine according to AGENT_SETUP.md"
 ```
+The AI will automatically inspect your environment, install backend & frontend dependencies, seed the statutory database, run test suites, and launch the dev servers.
 
-### 2. Configure environment
+---
 
-Create a `.env` file or copy `docker/.env.example`:
+### Option 2: ⚡ 1-Click Launch Scripts
 
-- `DATABASE_URL` – Postgres connection string
-- `PGVECTOR_ENABLED` – `true`
-- `KEYCLOAK_URL`, `KEYCLOAK_REALM`, `KEYCLOAK_CLIENT_ID` – if using Keycloak
-- `DOCASSEMBLE_URL` – base URL for Docassemble API
-- `HF_TOKEN` – Hugging Face token (for InLegalBERT if required)[cite:13][cite:71]
-- `INDICTRANS_MODEL_PATH` – local path or HF model id for IndicTrans2[cite:30][cite:33]
-- `PADDLEOCR_CONFIG` – PaddleOCR model configuration[cite:32][cite:36]
+* **Windows**:
+  1. Run `setup.bat` (installs virtual environment, dependencies & seeds database)
+  2. Run `start.bat` (launches Backend on `localhost:8000` and Frontend on `localhost:3000`)
+* **Linux / macOS**:
+  1. Run `chmod +x setup.sh start.sh`
+  2. Run `./setup.sh`
+  3. Run `./start.sh`
 
-### 3. Bring up core services with Docker
+---
 
+### Option 3: 🛠️ Manual Installation Step-by-Step
+
+#### 1. Backend (FastAPI + SQLite/Postgres)
 ```bash
-docker compose up -d
+cd apps/backend
+python -m venv venv
+# Windows: .\venv\Scripts\activate | Linux/Mac: source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+
+# Initialize database & seed 5 sample FIR cases + 57 BNS sections
+python seed_data.py
+
+# Launch Backend API server
+python -m uvicorn main:app --port 8000 --reload
 ```
+* Backend API Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-A typical `docker-compose.yml` will start:
-
-- Postgres (with pgvector)
-- Backend API
-- Frontend app
-- Docassemble (if bundled) or connect to an external instance[cite:103][cite:108]
-
-### 4. Initialize database and corpus
-
-From `apps/backend`:
-
+#### 2. Frontend (React 18 + Vite)
 ```bash
-poetry install  # or pip install -r requirements.txt
-python -m crimegpt_backend.init_db      # create tables
-python -m crimegpt_backend.load_corpus  # ingest BNS/BNSS/BSA + crosswalks
-python -m crimegpt_backend.embed_legal  # run InLegalBERT embeddings
+cd apps/frontend
+npm install
+npm run dev
 ```
+* Web Application: [http://localhost:3000](http://localhost:3000)
 
-These scripts:
+---
 
-- Create the core schema.  
-- Ingest bare acts and IPC→BNS crosswalk data from `packages/data-pipelines`.[cite:93][cite:83][cite:87][cite:90]  
-- Populate `legal_chunks` with InLegalBERT embeddings.[cite:9][cite:13][cite:19][cite:71]
-
-### 5. Open the UI
-
-Visit:
-
-- Backend: `http://localhost:8000/docs` (API docs).  
-- Frontend: `http://localhost:3000` (officer interface).
+## 💻 System Verification & Tests
+To verify all services and endpoints:
+```bash
+cd apps/backend
+python verify_test.py       # Basic API & DB validation
+python verify_phase3.py     # Document generation & PDF preview
+python verify_phase4.py     # BNSS Case Diary & timeline validation
+python verify_phase5.py     # BSA Section 63 Evidence Vault hashing
+python verify_phase6.py     # Multimodal Voice ASR & OCR complaint scanner
+```
 
 You should be able to:
 
