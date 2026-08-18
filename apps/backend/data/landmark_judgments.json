@@ -1,0 +1,133 @@
+[
+  {
+    "id": "case-01",
+    "case_name": "Arnesh Kumar v. State of Bihar",
+    "citation": "(2014) 8 SCC 273",
+    "bench": "Supreme Court of India",
+    "subject": "Arrest Guidelines & Checklists for Offences < 7 Years Imprisonment",
+    "principle": "Police officers shall not automatically arrest accused when offence is punishable with imprisonment up to 7 years. Notice under Section 35(3) BNSS (formerly 41A CrPC) must be served. Arrest checklist must be furnished to Magistrate stating reasons why arrest was necessary.",
+    "applicable_sections": ["Section 35 BNSS", "Section 85 BNS", "Section 318 BNS"],
+    "keywords": ["arnesh kumar", "notice of appearance", "41a crpc", "unnecessary arrest", "dowry arrest", "checklist", "custody"]
+  },
+  {
+    "id": "case-02",
+    "case_name": "Lalita Kumari v. Govt. of Uttar Pradesh",
+    "citation": "(2014) 2 SCC 1",
+    "bench": "Supreme Court of India (Constitution Bench)",
+    "subject": "Mandatory Registration of FIR in Cognizable Offences",
+    "principle": "Registration of FIR is mandatory under Section 173 BNSS (154 CrPC) if information discloses commission of a cognizable offence. Preliminary enquiry allowed only in matrimonial, commercial, medical negligence, or corruption cases, capped at statutory time limit.",
+    "applicable_sections": ["Section 173 BNSS"],
+    "keywords": ["lalita kumari", "mandatory fir", "zero fir", "preliminary enquiry", "cognizable offence", "delay in fir"]
+  },
+  {
+    "id": "case-03",
+    "case_name": "D.K. Basu v. State of West Bengal",
+    "citation": "(1997) 1 SCC 416",
+    "bench": "Supreme Court of India",
+    "subject": "Arrest and Custodial Rights Guidelines (Inspection Memo, Intimation to Relative)",
+    "principle": "Mandates 11 fundamental guidelines: preparation of arrest memo signed by at least one witness/relative, right of accused to inform a friend/relative within 8-12 hours, mandatory medical examination upon arrest, and right to meet advocate during interrogation.",
+    "applicable_sections": ["Section 35 BNSS", "Section 53 BNSS", "Section 187 BNSS"],
+    "keywords": ["dk basu", "arrest memo", "custodial violence", "medical checkup", "arrest intimation", "rights of accused"]
+  },
+  {
+    "id": "case-04",
+    "case_name": "Satender Kumar Antil v. CBI",
+    "citation": "(2022) 10 SCC 51",
+    "bench": "Supreme Court of India",
+    "subject": "Bail Guidelines and Categorization of Offences",
+    "principle": "Categorized offences for uniform bail adjudication. Reiterated that investigation agencies must comply with Section 41A/Sec 35 BNSS. Strict action against investigating officers who violate procedural mandates.",
+    "applicable_sections": ["Section 35 BNSS", "Section 479 BNSS"],
+    "keywords": ["satender kumar antil", "bail categories", "non-arrest", "undertrial relief", "magistrate remand"]
+  },
+  {
+    "id": "case-05",
+    "case_name": "Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal",
+    "citation": "(2020) 7 SCC 1",
+    "bench": "Supreme Court of India",
+    "subject": "Mandatory Certificate for Electronic Evidence Admissibility",
+    "principle": "Production of certificate under Section 63 BSA (formerly 65B(4) IEA) is a condition precedent to the admissibility of electronic record by way of secondary evidence. If phone/hard disk is primary evidence in original state, certificate is not strictly necessary if seized properly.",
+    "applicable_sections": ["Section 61 BSA", "Section 63 BSA", "Section 105 BNSS"],
+    "keywords": ["arjun panditrao", "65b certificate", "electronic evidence", "call records", "cctv footage", "secondary evidence"]
+  },
+  {
+    "id": "case-06",
+    "case_name": "State of U.P. v. Deoman Upadhyaya & Pulukuri Kottaya v. King-Emperor",
+    "citation": "AIR 1960 SC 1125 / AIR 1947 PC 67",
+    "bench": "Supreme Court & Privy Council",
+    "subject": "Discovery of Fact under Recovery Memo (Section 23 BSA)",
+    "principle": "Only so much of information given by accused in police custody which relates distinctly to the discovery of a concealed fact/object is admissible in evidence. The weapon or property must be recovered exclusively upon the information of the accused.",
+    "applicable_sections": ["Section 23 BSA", "Section 105 BNSS"],
+    "keywords": ["pulukuri kottaya", "deoman upadhyaya", "recovery memo", "section 27", "section 23 bsa", "weapon discovery"]
+  },
+  {
+    "id": "case-07",
+    "case_name": "Shafhi Mohammad v. State of Himachal Pradesh",
+    "citation": "(2018) 2 SCC 801",
+    "bench": "Supreme Court of India",
+    "subject": "Mandatory Videography of Crime Scene & Seizure Process",
+    "principle": "Recommended introducing videography and photography during crime scene investigation, seizure of mudamal, and body search to ensure credibility and transparency — now codified under Section 105 BNSS.",
+    "applicable_sections": ["Section 105 BNSS"],
+    "keywords": ["videography", "crime scene photography", "body search", "seizure transparency", "shafhi mohammad"]
+  },
+  {
+    "id": "case-08",
+    "case_name": "Joginder Kumar v. State of Uttar Pradesh",
+    "citation": "(1994) 4 SCC 260",
+    "bench": "Supreme Court of India",
+    "subject": "Right to Counsel and Intimation of Arrest to Family",
+    "principle": "No arrest can be made because it is lawful for the police officer to do so. The existence of the power to arrest is one thing; the justification for the exercise of it is quite another. Right of arrested person to have one friend, relative, or well-wisher informed of arrest — now mandated under Section 35 BNSS (D.K. Basu guidelines reinforced).",
+    "applicable_sections": ["Section 35 BNSS", "Section 53 BNSS"],
+    "keywords": ["joginder kumar", "arrest intimation", "right to counsel", "inform family on arrest", "unnecessary arrest", "arrest justification", "police power"]
+  },
+  {
+    "id": "case-09",
+    "case_name": "Rajesh Sharma v. State of Uttar Pradesh",
+    "citation": "(2017) 10 SCC 472",
+    "bench": "Supreme Court of India",
+    "subject": "Safeguards Against Automatic Arrest in Section 498A (BNS Sec 85) Cases",
+    "principle": "Directed constitution of Family Welfare Committees for preliminary scrutiny before arrest in dowry/cruelty cases. Reinforces Arnesh Kumar mandate for Section 35 BNSS notice. Arrest in BNS Section 85 (498A) cases requires Magistrate verification of preliminary inquiry report.",
+    "applicable_sections": ["Section 85 BNS", "Section 35 BNSS"],
+    "keywords": ["rajesh sharma", "498a safeguards", "dowry arrest guidelines", "family welfare committee", "cruelty arrest procedure", "domestic violence arrest"]
+  },
+  {
+    "id": "case-10",
+    "case_name": "Zahira Habibullah Sheikh v. State of Gujarat (Best Bakery Case)",
+    "citation": "(2004) 4 SCC 158",
+    "bench": "Supreme Court of India",
+    "subject": "Fair Investigation and Witness Protection in Communal Violence Cases",
+    "principle": "The right to fair trial encompasses fair investigation. In communal violence cases, trial must be shifted if local witness protection is compromised. IO has statutory duty to record all eyewitness accounts accurately and cannot selectively record statements. SC ordered re-investigation and transfer of case.",
+    "applicable_sections": ["Section 173 BNSS", "Section 193 BNSS"],
+    "keywords": ["zahira habibullah", "best bakery", "communal riot", "fair investigation", "witness tampering", "witness protection", "case transfer", "impartial investigation"]
+  },
+  {
+    "id": "case-11",
+    "case_name": "PUCL v. Union of India",
+    "citation": "(1997) 3 SCC 433",
+    "bench": "Supreme Court of India",
+    "subject": "Phone Tapping, Surveillance and Privacy Rights in Investigation",
+    "principle": "Telephone tapping constitutes a serious invasion of the individual's privacy and is only permissible under strict procedural safeguards. An order for phone surveillance requires Home Secretary's approval, stated reasons, and review committees. Any evidence gathered in violation of these safeguards may be challenged under BSA.",
+    "applicable_sections": ["Section 61 BSA", "Section 63 BSA"],
+    "keywords": ["phone tapping", "surveillance", "privacy rights", "call records", "interception order", "illegal wiretapping", "pucl", "electronic surveillance"]
+  },
+  {
+    "id": "case-12",
+    "case_name": "Ritesh Sinha v. State of Uttar Pradesh",
+    "citation": "(2019) 8 SCC 1",
+    "bench": "Supreme Court of India (Constitution Bench)",
+    "subject": "Voice Sample of Accused Under Investigation",
+    "principle": "A magistrate has the power to order an accused to give a voice sample for comparison with recorded voice during investigation. This does not violate Article 20(3) (right against self-incrimination). Voice samples stored as electronic records are admissible under Section 61 BSA if authenticated properly.",
+    "applicable_sections": ["Section 61 BSA", "Section 63 BSA", "Section 53 BNSS"],
+    "keywords": ["voice sample", "voice identification", "accused voice recording", "voice print", "audio evidence", "ritesh sinha", "electronic voice evidence", "forensic audio"]
+  },
+  {
+    "id": "case-13",
+    "case_name": "State of Bombay v. Kathi Kalu Oghad",
+    "citation": "AIR 1961 SC 1808",
+    "bench": "Supreme Court of India (11-Judge Bench)",
+    "subject": "Handwriting Samples, Fingerprints and Specimen Evidence Not Self-Incrimination",
+    "principle": "Compelling an accused to give handwriting samples, fingerprints, footprints, blood samples, or photographs does not amount to self-incrimination under Article 20(3). Such specimen evidence is physical evidence, not a testimonial act, and its collection is mandated under Section 53 BNSS by a Medical Practitioner.",
+    "applicable_sections": ["Section 53 BNSS", "Section 35 BNSS", "Section 23 BSA"],
+    "keywords": ["fingerprint", "handwriting sample", "specimen evidence", "biometric", "blood sample", "DNA sample", "kathi kalu oghad", "self incrimination", "article 20(3)"]
+  }
+]
+

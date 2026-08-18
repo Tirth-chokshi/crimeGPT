@@ -1,0 +1,47 @@
+[
+  {
+    "section": "61",
+    "act": "BSA",
+    "title": "Admissibility of Electronic or Digital Record",
+    "iea_equivalent": "Section 65A Indian Evidence Act",
+    "summary": "Electronic or digital records have equal legal effect, validity, and enforceability as paper documents.",
+    "officer_mandate": "Preserve metadata, hash value (MD5/SHA256), and chain of custody for digital evidence (CCTV, call records, smartphones).",
+    "keywords": ["electronic evidence", "digital record", "cctv", "call recordings", "whatsapp chats", "cdr", "hard disk"]
+  },
+  {
+    "section": "63",
+    "act": "BSA",
+    "title": "Admissibility of Electronic Records & Mandatory Certificate (Replaces 65B)",
+    "iea_equivalent": "Section 65B Indian Evidence Act",
+    "summary": "Any electronic record shall be deemed to be a document and admissible in proceedings provided it is accompanied by a certificate signed by the person in lawful control or an expert.",
+    "officer_mandate": "Attach Certificate under Section 63 BSA Schedule with Part A (device owner) & Part B (expert/IO) for all phone dumps, DVR footage, and server logs.",
+    "keywords": ["65b certificate", "section 63 bsa", "hash certificate", "digital forensics", "cctv certificate", "cdr certificate"]
+  },
+  {
+    "section": "23",
+    "act": "BSA",
+    "title": "How much of Information Received from Accused may be Proved (Recovery Memo)",
+    "iea_equivalent": "Section 27 Indian Evidence Act",
+    "summary": "When any fact is deposed to as discovered in consequence of information received from a person accused of any offence, in the custody of a police officer, so much of such information, whether it amounts to a confession or not, as relates distinctly to the fact thereby discovered, may be proved.",
+    "officer_mandate": "Prepare Disclosure Statement Panchanama (Memorandum under Sec 23 BSA) before recovering weapon/stolen property in presence of independent witnesses.",
+    "keywords": ["disclosure statement", "section 27 iea", "section 23 bsa", "weapon recovery", "confessional recovery", "mudamal discovery"]
+  },
+  {
+    "section": "62",
+    "act": "BSA",
+    "title": "Primary Evidence in Electronic Form",
+    "iea_equivalent": "Section 62 Indian Evidence Act",
+    "summary": "Primary evidence means the document itself produced for the inspection of the Court. Where an electronic or digital record is created or stored in multiple electronic forms or spaces simultaneously, each such storage or file is primary evidence.",
+    "officer_mandate": "Secure original electronic storage devices (HDD, DVR, smartphone) in tamper-evident anti-static bags with unbroken paper seals before sending to FSL.",
+    "keywords": ["primary evidence", "original electronic record", "fsl dispatch", "tamper evident bag", "anti-static seal"]
+  },
+  {
+    "section": "65",
+    "act": "BSA",
+    "title": "Special Provisions as to Evidence Relating to Electronic Record",
+    "iea_equivalent": "Section 65 Indian Evidence Act",
+    "summary": "Electronic records produced from computers or digital devices are deemed documents and admissible without further proof of original if conditions under Section 63 are satisfied.",
+    "officer_mandate": "Maintain complete audit log, SHA-256 cryptographic hash matching, and device integrity documentation from time of seizure to court production.",
+    "keywords": ["electronic record conditions", "computer output", "hash matching", "chain of custody", "audit log"]
+  }
+]

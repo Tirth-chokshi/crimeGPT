@@ -1,0 +1,102 @@
+[
+  {
+    "section": "35",
+    "act": "BNSS",
+    "title": "When Police May Arrest Without Warrant & Notice of Appearance",
+    "crpc_equivalent": "Section 41 & 41A CrPC",
+    "summary": "Mandates grounds for arrest. For offences punishable with imprisonment up to 7 years, prior notice of appearance under Sec 35(3) is mandatory unless reasons in writing for arrest are recorded.",
+    "statutory_timeline": "Notice to appear within reasonable time; non-arrest compliance report within 14 days",
+    "officer_mandate": "Must record reasons in Case Diary. Senior officer permission required before arresting infirm/elderly persons.",
+    "keywords": ["arrest", "notice of appearance", "41a", "bailable arrest", "warrantless arrest", "reasons for arrest"]
+  },
+  {
+    "section": "53",
+    "act": "BNSS",
+    "title": "Medical Examination of Accused by Registered Medical Practitioner",
+    "crpc_equivalent": "Section 53 & 53A CrPC",
+    "summary": "Examination of person accused of offence by registered medical practitioner at the request of police officer not below the rank of Sub-Inspector.",
+    "statutory_timeline": "Immediate upon arrest, mandatory within 24 hours before magistrate production",
+    "officer_mandate": "Forward formal medical requisition letter to Chief Medical Officer (CMO) with list of visible injuries and identification marks.",
+    "keywords": ["medical examination", "mlc", "injury report", "fit for custody", "alcohol test", "dna sample", "medical letter"]
+  },
+  {
+    "section": "105",
+    "act": "BNSS",
+    "title": "Recording of Search and Seizure through Audio-Video Electronic Means",
+    "crpc_equivalent": "Section 100/102 CrPC (Modified with mandatory videography)",
+    "summary": "Mandates that the process of conducting search of a place or taking possession of any property, article or thing (seizure) must be recorded through audio-video electronic means preferably mobile phone/camera.",
+    "statutory_timeline": "Forward recording to District Magistrate / Magistrate within 48 hours",
+    "officer_mandate": "Prepare detailed Seizure Memo / Mudamal Panchanama in presence of 2 independent panch witnesses with hash certificate.",
+    "keywords": ["seizure", "panchanama", "videography", "electronic recording", "mudamal", "search memo", "panch witness"]
+  },
+  {
+    "section": "173",
+    "act": "BNSS",
+    "title": "Information in Cognizable Cases (FIR Registration & e-FIR)",
+    "crpc_equivalent": "Section 154 CrPC",
+    "summary": "Registration of FIR. Allows Zero-FIR from any police station and e-FIR (electronic communication signed within 3 days). Permits Preliminary Enquiry (PE) for offences punishable with 3 to 7 years with DSP approval within 14 days.",
+    "statutory_timeline": "Preliminary Enquiry max 14 days; e-FIR signature within 3 days",
+    "officer_mandate": "Supply free copy of FIR to informant forthwith and record in Case Diary.",
+    "keywords": ["fir", "zero fir", "e-fir", "preliminary enquiry", "complaint", "cognizable report"]
+  },
+  {
+    "section": "187",
+    "act": "BNSS",
+    "title": "Procedure when Investigation cannot be Completed in 24 Hours (Remand / Custody)",
+    "crpc_equivalent": "Section 167 CrPC",
+    "summary": "Magistrate may authorize detention in police custody for a term not exceeding 15 days in whole or in parts, at any time during initial 40 days or 60 days out of the total detention period of 60 or 90 days.",
+    "statutory_timeline": "Production within 24 hours; Max 15 days police remand; Total 60 days (offences < 10 yrs) or 90 days (offences >= 10 yrs / death / life)",
+    "officer_mandate": "Submit Remand Application with Case Diary extracts, grounds of interrogation, and pending recoveries.",
+    "keywords": ["remand", "police custody", "judicial custody", "167 crpc", "187 bnss", "custody extension", "24 hours production"]
+  },
+  {
+    "section": "193",
+    "act": "BNSS",
+    "title": "Report of Police Officer on Completion of Investigation (Chargesheet / Purvani Chargesheet)",
+    "crpc_equivalent": "Section 173 CrPC",
+    "summary": "Filing of final police report/chargesheet or supplementary chargesheet (Purvani Chargesheet) upon completion of investigation to the Magistrate.",
+    "statutory_timeline": "Investigation for sexual offences must be completed within 2 months (60 days); General chargesheet within 60 or 90 days of arrest",
+    "officer_mandate": "Submit complete chargesheet bundle: list of witnesses, forensic reports, seizure receipts, BNS sections, and electronic records.",
+    "keywords": ["chargesheet", "purvani chargesheet", "final report", "supplementary chargesheet", "police report", "173 crpc", "193 bnss"]
+  },
+  {
+    "section": "479",
+    "act": "BNSS",
+    "title": "Maximum Period for which an Undertrial Prisoner can be Detained (Default Bail)",
+    "crpc_equivalent": "Section 436A CrPC",
+    "summary": "First-time offenders who have never been convicted of any offence in the past are entitled to release on bail if they have undergone detention for 1/3rd of the maximum imprisonment period.",
+    "statutory_timeline": "1/3rd time for first-time offender; 1/2 time for others",
+    "officer_mandate": "Ensure timely filing of chargesheet to prevent default statutory bail under Section 187(3).",
+    "keywords": ["default bail", "statutory bail", "undertrial", "436a", "bail rights"]
+  },
+  {
+    "section": "176",
+    "act": "BNSS",
+    "title": "Inquiry by Police Officer into Cause of Death (Inquest Report)",
+    "crpc_equivalent": "Section 174 CrPC",
+    "summary": "When the officer in charge of a police station or some other police officer specially empowered receives information that a person has died under suspicious circumstances or has committed suicide, the officer shall immediately give intimation to the nearest Executive Magistrate empowered to hold inquests, and shall in such cases, proceed to the place where the body of such deceased person is, and there make an investigation.",
+    "statutory_timeline": "Inquest report must be dispatched to the nearest District Magistrate. Post-mortem report to be collected within 30 days.",
+    "officer_mandate": "Prepare detailed Inquest Report (Panchnama Marg) in the presence of two or more respectable inhabitants of the locality. Preserve viscera and crime scene.",
+    "keywords": ["inquest", "post mortem", "unnatural death", "suspicious death", "suicide", "inquest report", "panchnama marg", "viscera"]
+  },
+  {
+    "section": "229",
+    "act": "BNSS",
+    "title": "Bail in Non-Bailable Offences — Discretion of Court",
+    "crpc_equivalent": "Section 437 CrPC",
+    "summary": "When any person accused of a non-bailable offence is arrested or detained, the Court may release the accused on bail subject to conditions. Bail shall not ordinarily be granted if the offence is punishable with death, imprisonment for life, or imprisonment for more than 7 years, unless special reasons recorded.",
+    "statutory_timeline": "Bail application to be decided within 30 days of filing. Court must give reasons in writing for grant or refusal.",
+    "officer_mandate": "File opposition to bail application citing pending recoveries, risk of evidence tampering, flight risk, and non-compliance with earlier conditions. Attach case diary extracts.",
+    "keywords": ["bail", "non-bailable", "bail application", "bail opposition", "bail conditions", "bail surety", "anticipatory bail", "bail order"]
+  },
+  {
+    "section": "480",
+    "act": "BNSS",
+    "title": "Power to order Prisoner to be Brought before Court — Bail on Illness / Humanitarian Grounds",
+    "crpc_equivalent": "Section 436A CrPC (Extended)",
+    "summary": "When any person is detained in custody under this Code and it is certified by a medical officer that the person is suffering from a dangerous disease or disability and is unable to undergo further imprisonment, the court may order the person to be released on bail. Also provides for bail to first-time offenders who have served 1/3rd of maximum sentence period.",
+    "statutory_timeline": "Application on humanitarian grounds to be decided within 15 days. Medical certificate mandatory.",
+    "officer_mandate": "Where IO opposes humanitarian bail, file written representation to court with current investigation status. Attach medical examination report from CMO.",
+    "keywords": ["humanitarian bail", "medical bail", "illness custody", "first time offender bail", "1/3 detention", "bail on health", "prisoner medical release"]
+  }
+]
