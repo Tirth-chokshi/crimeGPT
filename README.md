@@ -109,7 +109,7 @@ Key components:
 ## 🚀 Quick Start & Installation
 
 ### Option 1: 🤖 AI Agent Automated Setup (Recommended for AI Assistants)
-If you are using an AI Coding Assistant (Antigravity, Claude Code, Cursor, Windsurf, Copilot, Codex), simply open or pass [**`AGENT_SETUP.md`**](file:///d:/Code%20Playground/anti-movie/crimegpt/AGENT_SETUP.md):
+If you are using an AI Coding Assistant (Antigravity, Claude Code, Cursor, Windsurf, Copilot, Codex), simply open or pass [**`AGENT_SETUP.md`**](AGENT_SETUP.md):
 ```markdown
 "Please set up CrimeGPT on this machine according to AGENT_SETUP.md"
 ```
