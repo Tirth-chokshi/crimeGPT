@@ -1,5 +1,8 @@
 # CrimeGPT
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-crimegpt.nightfury.me-2563eb?style=for-the-badge&logo=fastapi&logoColor=white)](https://crimegpt.nightfury.me)
+[![Jurisdiction](https://img.shields.io/badge/Jurisdiction-BNS%20%7C%20BNSS%20%7C%20BSA%20(2023)-10b981?style=for-the-badge)](https://crimegpt.nightfury.me)
+
 AI‑powered automation for Indian crime documentation and legal intelligence under BNS, BNSS, and BSA.
 
 CrimeGPT helps law enforcement officers in India generate structured crime‑related documents, maintain
