@@ -96,17 +96,23 @@ if os.path.exists(FRONTEND_DIST):
         app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
     @app.get("/")
+    @app.head("/")
     def serve_frontend_root():
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
 
     @app.get("/{catchall:path}")
+    @app.head("/{catchall:path}")
     def serve_frontend_catchall(catchall: str):
+        if catchall.startswith("api"):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="API endpoint not found")
         file_path = os.path.join(FRONTEND_DIST, catchall)
         if os.path.exists(file_path) and os.path.isfile(file_path):
             return FileResponse(file_path)
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
 else:
     @app.get("/")
+    @app.head("/")
     def root():
         return api_info()
 
