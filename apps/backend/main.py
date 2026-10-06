@@ -56,10 +56,15 @@ app.include_router(evidence_router, prefix="/api")
 app.include_router(cctns_sync_router, prefix="/api")
 app.include_router(lers_router, prefix="/api")
 
+# Static Frontend Mount for Live Deployment
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
+FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
 
-@app.get("/")
-def root():
+@app.get("/api/info")
+@app.get("/api/status")
+def api_info():
     from services.llm_service import LLMService
     llm_status = LLMService.get_status()
     return {
@@ -85,6 +90,27 @@ def health_check():
         "legal_engine_online": llm_status
     }
 
+if os.path.exists(FRONTEND_DIST):
+    assets_dir = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/")
+    def serve_frontend_root():
+        return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
+
+    @app.get("/{catchall:path}")
+    def serve_frontend_catchall(catchall: str):
+        file_path = os.path.join(FRONTEND_DIST, catchall)
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
+else:
+    @app.get("/")
+    def root():
+        return api_info()
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.getenv("PORT", os.getenv("APP_PORT", "8001")))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
