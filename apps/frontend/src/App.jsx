@@ -14,12 +14,19 @@ import { api } from "./api";
 export default function App() {
   const [currentLang, setLang] = useState("en");
   const [currentRole, setRole] = useState("IO");
+  const [theme, setTheme] = useState(() => localStorage.getItem("crimegpt_theme") || "dark");
   const [activePage, setActivePage] = useState("dashboard");
   const [selectedCaseId, setSelectedCaseId] = useState(null);
   const [cases, setCases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
+  // Sync theme attribute on <html> element
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("crimegpt_theme", theme);
+  }, [theme]);
 
   const fetchCases = async () => {
     try {
@@ -67,6 +74,8 @@ export default function App() {
         setLang={setLang}
         currentRole={currentRole}
         setRole={setRole}
+        theme={theme}
+        setTheme={setTheme}
         policeStation="Navrangpura Police Station, Ahmedabad"
         isSidebarCollapsed={isSidebarCollapsed}
         setIsSidebarCollapsed={setIsSidebarCollapsed}

@@ -190,7 +190,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: "rgba(3, 7, 18, 0.85)",
+        backgroundColor: "rgba(10, 6, 6, 0.75)",
         backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
@@ -205,10 +205,10 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
           width: "100%",
           maxWidth: "640px",
           background: "var(--bg-card)",
-          border: "1px solid var(--border-color)",
+          border: "1px solid var(--border-subtle)",
           borderRadius: "16px",
           overflow: "hidden",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7)"
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
         }}
       >
         {/* Header */}
@@ -227,16 +227,16 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
                 width: "36px",
                 height: "36px",
                 borderRadius: "8px",
-                background: "rgba(245, 158, 11, 0.15)",
+                background: "var(--bordo-soft)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
               }}
             >
-              <Mic size={20} color="var(--police-gold)" />
+              <Mic size={20} color="var(--bordo)" />
             </div>
             <div>
-              <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#f8fafc" }}>
+              <h3 style={{ fontSize: "16px", fontWeight: "800", color: "var(--text-heading)" }}>
                 Live Audio & Voice Statement Ingestion
               </h3>
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", margin: 0 }}>
@@ -287,7 +287,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
               alignItems: "center",
               justifyContent: "center",
               padding: "24px",
-              background: "rgba(15, 23, 42, 0.6)",
+              background: "var(--bg-inline-card)",
               borderRadius: "12px",
               border: "1px solid var(--border-subtle)",
               marginBottom: "20px"
@@ -302,7 +302,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
                 borderRadius: "50%",
                 background: isRecording
                   ? "linear-gradient(135deg, #ef4444, #dc2626)"
-                  : "linear-gradient(135deg, #f59e0b, #d97706)",
+                  : "linear-gradient(135deg, #6C151E, #851D28)",
                 border: "none",
                 color: "#ffffff",
                 display: "flex",
@@ -311,7 +311,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
                 cursor: "pointer",
                 boxShadow: isRecording
                   ? "0 0 25px rgba(239, 68, 68, 0.6)"
-                  : "0 0 20px rgba(245, 158, 11, 0.4)",
+                  : "0 0 20px rgba(108, 21, 30, 0.4)",
                 transition: "all 0.3s ease",
                 marginBottom: "12px"
               }}
@@ -323,7 +323,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
               style={{
                 fontSize: "13px",
                 fontWeight: "700",
-                color: isRecording ? "#ef4444" : "#38bdf8"
+                color: isRecording ? "#ef4444" : "var(--bordo)"
               }}
             >
               {isRecording ? "Recording in progress — speak clearly" : "Click Microphone to Start Speaking"}
@@ -383,7 +383,8 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
                 minHeight: "120px",
                 fontSize: "13.5px",
                 lineHeight: "1.5",
-                background: "rgba(7, 11, 20, 0.9)",
+                background: "var(--bg-input)",
+                color: "var(--text-primary)",
                 borderColor: isRecording ? "var(--police-gold)" : "var(--border-subtle)"
               }}
               value={transcript + (interimTranscript ? " " + interimTranscript : "")}
@@ -396,7 +397,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
           <div
             style={{
               padding: "12px 16px",
-              background: "rgba(15, 23, 42, 0.4)",
+              background: "var(--cream-soft)",
               borderRadius: "8px",
               border: "1px dashed var(--border-subtle)",
               display: "flex",
@@ -434,7 +435,7 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
             display: "flex",
             justifyContent: "flex-end",
             gap: "12px",
-            background: "rgba(15, 23, 42, 0.8)"
+            background: "var(--bg-surface-raised)"
           }}
         >
           <button type="button" onClick={onClose} className="btn btn-secondary" style={{ fontSize: "13px" }}>

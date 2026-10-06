@@ -178,8 +178,8 @@ export default function CCTNSSyncPanel({
         className="glass-panel"
         style={{
           padding: "20px 24px",
-          background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.8) 100%)",
-          border: "1px solid rgba(56, 189, 248, 0.3)",
+          background: "var(--bg-surface-raised)",
+          border: "1px solid var(--border-subtle)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -193,18 +193,18 @@ export default function CCTNSSyncPanel({
               width: "44px",
               height: "44px",
               borderRadius: "10px",
-              background: "rgba(56, 189, 248, 0.15)",
-              border: "1px solid rgba(56, 189, 248, 0.35)",
+              background: "var(--bordo-soft)",
+              border: "1px solid var(--border-subtle)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center"
             }}
           >
-            <Database size={24} color="#38bdf8" />
+            <Database size={24} color="var(--bordo)" />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <h3 style={{ fontSize: "17px", fontWeight: "800", margin: 0, color: "#f8fafc" }}>
+              <h3 style={{ fontSize: "17px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                 National ICJS, CCTNS &amp; BharatPol Gateway
               </h3>
               <span className="badge badge-green" style={{ fontSize: "10px" }}>
@@ -235,14 +235,14 @@ export default function CCTNSSyncPanel({
             className="btn btn-outline"
             style={{ fontSize: "12px", padding: "7px 14px", display: "flex", alignItems: "center", gap: "6px" }}
           >
-            <ShieldAlert size={13} color="#38bdf8" />
+            <ShieldAlert size={13} color="var(--bordo)" />
             Push to BharatPol
           </button>
 
           <button
             onClick={handleBulkSyncEsakshya}
             disabled={isSyncing}
-            className="btn btn-cyan"
+            className="btn btn-secondary"
             style={{ fontSize: "12px", padding: "7px 14px", display: "flex", alignItems: "center", gap: "6px" }}
           >
             <Cloud size={13} />
@@ -256,8 +256,8 @@ export default function CCTNSSyncPanel({
         {/* Card 1: CCTNS Status */}
         <div className="glass-panel" style={{ padding: "16px", borderLeft: syncStatus?.cctns_synced ? "4px solid #10b981" : "4px solid #f59e0b" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-            <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
-              <Database size={14} color="#38bdf8" /> CCTNS CAS 5.0
+            <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
+              <Database size={14} color="var(--bordo)" /> CCTNS CAS 5.0
             </span>
             <span className={`badge ${syncStatus?.cctns_synced ? "badge-green" : "badge-gold"}`} style={{ fontSize: "9px" }}>
               {syncStatus?.cctns_status || "PENDING_SYNC"}
@@ -280,8 +280,8 @@ export default function CCTNSSyncPanel({
         {/* Card 2: BharatPol National Criminal Portal */}
         <div className="glass-panel" style={{ padding: "16px", borderLeft: bharatpolSynced ? "4px solid #10b981" : "4px solid var(--border-subtle)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-            <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
-              <ShieldAlert size={14} color="#38bdf8" /> BharatPol ICJS Portal
+            <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
+              <ShieldAlert size={14} color="var(--bordo)" /> BharatPol ICJS Portal
             </span>
             <span className={`badge ${bharatpolSynced ? "badge-green" : "badge-blue"}`} style={{ fontSize: "9px" }}>
               {bharatpolSynced ? "SYNCED & ACTIVE" : "READY TO PUSH"}
@@ -295,8 +295,8 @@ export default function CCTNSSyncPanel({
         {/* Card 3: e-Sakshya Status */}
         <div className="glass-panel" style={{ padding: "16px", borderLeft: syncStatus?.esakshya_registered_count > 0 ? "4px solid #10b981" : "4px solid var(--border-subtle)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-            <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
-              <Cloud size={14} color="#38bdf8" /> e-Sakshya Evidence Vault
+            <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
+              <Cloud size={14} color="var(--bordo)" /> e-Sakshya Evidence Vault
             </span>
             <span className={`badge ${syncStatus?.esakshya_registered_count > 0 ? "badge-green" : "badge-blue"}`} style={{ fontSize: "9px" }}>
               {syncStatus?.esakshya_registered_count || 0} VAULTED
@@ -312,24 +312,24 @@ export default function CCTNSSyncPanel({
       {terminalLogs.length > 0 && (
         <div
           style={{
-            background: "#090d16",
-            border: "1px solid rgba(56, 189, 248, 0.25)",
+            background: "var(--bg-code)",
+            border: "1px solid var(--border-subtle)",
             borderRadius: "8px",
             padding: "14px",
             fontFamily: "var(--font-mono)",
             fontSize: "11.5px"
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#38bdf8", marginBottom: "8px", fontWeight: "700" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--bordo)", marginBottom: "8px", fontWeight: "700" }}>
             <Terminal size={13} /> ICJS Gateway Interoperability Terminal Handshake
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "4px", maxHeight: "180px", overflowY: "auto" }}>
             {terminalLogs.map((log, idx) => (
               <div key={idx} style={{ display: "flex", gap: "8px" }}>
-                <span style={{ color: "#64748b" }}>[{log.timestamp}]</span>
+                <span style={{ color: "var(--text-muted)" }}>[{log.timestamp}]</span>
                 <span
                   style={{
-                    color: log.type === "success" ? "#34d399" : log.type === "error" ? "#ef4444" : "#cbd5e1"
+                    color: log.type === "success" ? "#34d399" : log.type === "error" ? "#ef4444" : "var(--text-primary)"
                   }}
                 >
                   {log.msg}
@@ -342,7 +342,7 @@ export default function CCTNSSyncPanel({
 
       {/* Sync History Audit Trail */}
       <div className="glass-panel" style={{ padding: "18px" }}>
-        <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#38bdf8", marginBottom: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
+        <h4 style={{ fontSize: "13px", fontWeight: "700", color: "var(--bordo)", marginBottom: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
           <History size={15} /> Sync Transaction Audit Trail ({syncStatus?.history?.length || 0})
         </h4>
 
@@ -358,7 +358,7 @@ export default function CCTNSSyncPanel({
                 style={{
                   padding: "10px 14px",
                   borderRadius: "6px",
-                  background: "rgba(19, 29, 51, 0.6)",
+                  background: "var(--bg-surface-raised)",
                   border: "1px solid var(--border-subtle)",
                   display: "flex",
                   justifyContent: "space-between",
@@ -376,7 +376,7 @@ export default function CCTNSSyncPanel({
                       {item.timestamp_ist}
                     </span>
                   </div>
-                  <div style={{ fontSize: "12px", color: "#f8fafc" }}>
+                  <div style={{ fontSize: "12px", color: "var(--text-heading)" }}>
                     {item.details}
                   </div>
                 </div>
@@ -404,12 +404,12 @@ export default function CCTNSSyncPanel({
 
             <pre
               style={{
-                background: "#0a0f1d",
+                background: "var(--bg-code)",
                 padding: "14px",
                 borderRadius: "6px",
                 border: "1px solid var(--border-subtle)",
                 fontSize: "11.5px",
-                color: "#38bdf8",
+                color: "var(--text-primary)",
                 fontFamily: "var(--font-mono)",
                 whiteSpace: "pre-wrap",
                 maxHeight: "360px",

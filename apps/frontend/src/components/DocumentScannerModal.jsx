@@ -81,7 +81,7 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: "rgba(3, 7, 18, 0.85)",
+        backgroundColor: "rgba(10, 6, 6, 0.75)",
         backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
@@ -97,12 +97,12 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
           maxWidth: "880px",
           maxHeight: "90vh",
           background: "var(--bg-card)",
-          border: "1px solid var(--border-color)",
+          border: "1px solid var(--border-subtle)",
           borderRadius: "16px",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7)"
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
         }}
       >
         {/* Modal Header */}
@@ -121,16 +121,16 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
                 width: "36px",
                 height: "36px",
                 borderRadius: "8px",
-                background: "rgba(56, 189, 248, 0.15)",
+                background: "var(--bordo-soft)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
               }}
             >
-              <FileSearch size={20} color="#38bdf8" />
+              <FileSearch size={20} color="var(--bordo)" />
             </div>
             <div>
-              <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#f8fafc", margin: 0 }}>
+              <h3 style={{ fontSize: "16px", fontWeight: "800", color: "var(--text-heading)", margin: 0 }}>
                 Physical Police Complaint & FIR OCR Scanner
               </h3>
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", margin: 0 }}>
@@ -152,17 +152,17 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
             /* Upload Dropzone */
             <div
               style={{
-                border: "2px dashed var(--border-color)",
+                border: "2px dashed var(--border-medium)",
                 borderRadius: "12px",
                 padding: "48px 24px",
                 textAlign: "center",
-                background: "rgba(15, 23, 42, 0.4)",
+                background: "var(--cream-soft)",
                 cursor: "pointer"
               }}
               onClick={() => document.getElementById("ocr-file-input").click()}
             >
-              <Upload size={40} color="#38bdf8" style={{ marginBottom: "12px" }} />
-              <h4 style={{ fontSize: "15px", fontWeight: "700", color: "#f8fafc", marginBottom: "6px" }}>
+              <Upload size={40} color="var(--bordo)" style={{ marginBottom: "12px" }} />
+              <h4 style={{ fontSize: "15px", fontWeight: "700", color: "var(--text-heading)", marginBottom: "6px" }}>
                 Click to upload or drag & drop scanned complaint image
               </h4>
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginBottom: "16px" }}>
@@ -187,14 +187,14 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  background: "rgba(15, 23, 42, 0.6)",
+                  background: "var(--bg-inline-card)",
                   borderRadius: "10px",
                   padding: "14px",
                   border: "1px solid var(--border-subtle)"
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: "700", color: "#38bdf8" }}>
+                  <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--bordo)" }}>
                     Scanned Document Preview
                   </span>
                   <label
@@ -217,7 +217,7 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
                     maxHeight: "360px",
                     overflow: "hidden",
                     borderRadius: "8px",
-                    background: "#030712",
+                    background: "var(--bg-code)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center"
@@ -243,8 +243,8 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 {isScanning ? (
                   <div style={{ textAlign: "center", padding: "40px" }}>
-                    <RefreshCw className="animate-spin" size={32} color="#38bdf8" style={{ marginBottom: "12px" }} />
-                    <div style={{ fontSize: "14px", fontWeight: "700", color: "#f8fafc" }}>
+                    <RefreshCw className="animate-spin" size={32} color="var(--bordo)" style={{ marginBottom: "12px" }} />
+                    <div style={{ fontSize: "14px", fontWeight: "700", color: "var(--text-heading)" }}>
                       Processing Document OCR...
                     </div>
                     <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>
@@ -348,7 +348,7 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
             display: "flex",
             justifyContent: "flex-end",
             gap: "12px",
-            background: "rgba(15, 23, 42, 0.8)"
+            background: "var(--bg-surface-raised)"
           }}
         >
           <button type="button" onClick={handleClose} className="btn btn-secondary" style={{ fontSize: "13px" }}>

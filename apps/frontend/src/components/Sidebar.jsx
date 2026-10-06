@@ -157,7 +157,7 @@ export default function Sidebar({
                     bottom: "4px",
                     width: "3px",
                     borderRadius: "0 2px 2px 0",
-                    background: "var(--police-blue)"
+                    background: "#6C151E"
                   }}
                 />
               )}
@@ -165,7 +165,7 @@ export default function Sidebar({
               <div style={{ display: "flex", alignItems: "center", gap: isCollapsed ? "0" : "10px" }}>
                 <Icon
                   size={16}
-                  color={isActive ? "var(--police-blue)" : "currentColor"}
+                  color={isActive ? "#6C151E" : "currentColor"}
                 />
                 {!isCollapsed && <span style={{ whiteSpace: "nowrap" }}>{item.label}</span>}
               </div>
@@ -186,34 +186,13 @@ export default function Sidebar({
                     width: "5px",
                     height: "5px",
                     borderRadius: "50%",
-                    background: "var(--police-blue)"
+                    background: "#6C151E"
                   }}
                 />
               )}
             </button>
           );
         })}
-
-        {/* Statutory Reference Footer */}
-        {!isCollapsed && (
-          <div style={{ marginTop: "auto", paddingTop: "10px", borderTop: "1px solid var(--border-subtle)" }}>
-            <div
-              style={{
-                padding: "8px 10px",
-                background: "var(--bg-surface-raised)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: "6px"
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", color: "var(--text-primary)", marginBottom: "3px" }}>
-                <Shield size={12} color="var(--police-blue)" /> BNSS 2023 Rules
-              </div>
-              <div style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: "1.4" }}>
-                Enforcing 24h remand (Sec 187), Sec 105 videography & Sec 63 BSA evidence seals.
-              </div>
-            </div>
-          </div>
-        )}
       </aside>
     </>
   );

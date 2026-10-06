@@ -3,7 +3,7 @@ import {
   ArrowLeft, FileText, Download, Printer, Plus, Scale, Clock, 
   ShieldCheck, AlertTriangle, CheckCircle2, ChevronRight, RefreshCw, 
   Eye, BookOpen, Layers, History, Package, UserCheck, ShieldAlert,
-  MessageSquare, ExternalLink, Code
+  MessageSquare, ExternalLink, Code, Copy, Check, Lock
 } from "lucide-react";
 import { api } from "../api";
 import { translations } from "../translations";
@@ -28,6 +28,14 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
   const [successToast, setSuccessToast] = useState("");
   const [showAddDiaryModal, setShowAddDiaryModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
+  const [copiedAuditId, setCopiedAuditId] = useState(null);
+
+  const handleCopyAuditHash = (text, id) => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    setCopiedAuditId(id);
+    setTimeout(() => setCopiedAuditId(null), 2000);
+  };
 
   // New Sprint Feature Modals
   const [printPreviewDoc, setPrintPreviewDoc] = useState(null);
@@ -271,7 +279,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "16px" }}>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "20px", fontWeight: "800", fontFamily: "var(--font-mono)", color: "#38bdf8", margin: 0 }}>
+              <h1 style={{ fontSize: "20px", fontWeight: "800", fontFamily: "var(--font-mono)", color: "var(--bordo)", margin: 0 }}>
                 {caseData.fir_number}
               </h1>
               <span className="badge badge-blue">{t.status[caseData.status] || caseData.status}</span>
@@ -287,17 +295,17 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
 
           {/* Quick Stats on Right */}
           <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-            <div style={{ background: "#141b2e", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+            <div style={{ background: "var(--bg-surface-raised)", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
               <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>Persons</div>
-              <div style={{ fontSize: "15px", fontWeight: "800", color: "#f8fafc" }}>{(caseData.persons || []).length}</div>
+              <div style={{ fontSize: "15px", fontWeight: "800", color: "var(--text-heading)" }}>{(caseData.persons || []).length}</div>
             </div>
-            <div style={{ background: "#141b2e", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+            <div style={{ background: "var(--bg-surface-raised)", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
               <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>BNS Sections</div>
-              <div style={{ fontSize: "15px", fontWeight: "800", color: "#f8fafc" }}>{(caseData.sections || []).length}</div>
+              <div style={{ fontSize: "15px", fontWeight: "800", color: "var(--text-heading)" }}>{(caseData.sections || []).length}</div>
             </div>
-            <div style={{ background: "#141b2e", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+            <div style={{ background: "var(--bg-surface-raised)", padding: "6px 12px", borderRadius: "7px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
               <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>Docs</div>
-              <div style={{ fontSize: "15px", fontWeight: "800", color: "#38bdf8" }}>{documents.length} / 7</div>
+              <div style={{ fontSize: "15px", fontWeight: "800", color: "var(--bordo)" }}>{documents.length} / 7</div>
             </div>
           </div>
         </div>
@@ -342,7 +350,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: "16px" }}>
           {/* Left Column: All 7 Document Generators */}
           <div className="glass-panel" style={{ padding: "18px", height: "fit-content" }}>
-            <h2 style={{ fontSize: "14px", fontWeight: "800", color: "#fbbf24", marginBottom: "4px" }}>
+            <h2 style={{ fontSize: "14px", fontWeight: "800", color: "var(--police-gold)", marginBottom: "4px" }}>
               Official Police Documents (7)
             </h2>
             <p style={{ fontSize: "11px", color: "var(--text-muted)", marginBottom: "14px" }}>
@@ -358,15 +366,15 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                   <div
                     key={doc.id}
                     style={{
-                      background: isSelected ? "rgba(56, 189, 248, 0.1)" : "rgba(19, 29, 51, 0.6)",
-                      border: isSelected ? "1px solid var(--police-blue)" : "1px solid var(--border-subtle)",
+                      background: isSelected ? "rgba(108, 21, 30, 0.12)" : "var(--bg-surface-raised)",
+                      border: isSelected ? "1px solid var(--bordo)" : "1px solid var(--border-subtle)",
                       borderRadius: "7px",
                       padding: "10px 12px",
                       transition: "all 0.15s ease"
                     }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "3px" }}>
-                      <span style={{ fontSize: "12.5px", fontWeight: "700", color: isSelected ? "#38bdf8" : "#f8fafc" }}>
+                      <span style={{ fontSize: "12.5px", fontWeight: "700", color: isSelected ? "var(--bordo)" : "var(--text-heading)" }}>
                         {t.docTypes[doc.id] || doc.id}
                       </span>
                       {existing ? (
@@ -395,7 +403,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                         style={{ padding: "4px 8px", fontSize: "11px" }}
                         title="Print / Save as PDF (Ctrl+P)"
                       >
-                        <Printer size={12} color="#fbbf24" />
+                        <Printer size={12} color="var(--police-gold)" />
                       </button>
 
                       {existing && (
@@ -421,7 +429,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                 {/* Actions Toolbar */}
                 <div className="glass-panel" style={{ padding: "12px 18px", marginBottom: "14px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px" }}>
                   <div>
-                    <div style={{ fontSize: "13.5px", fontWeight: "700", color: "#f8fafc" }}>
+                    <div style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--text-heading)" }}>
                       {selectedDocPreview.title}
                     </div>
                     <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>
@@ -435,7 +443,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                       className="btn btn-outline"
                       style={{ fontSize: "11.5px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px" }}
                     >
-                      <Printer size={14} color="#fbbf24" /> Print / Save as PDF (Ctrl+P)
+                      <Printer size={14} color="var(--police-gold)" /> Print / Save as PDF (Ctrl+P)
                     </button>
 
                     {selectedDocPreview.file_name && (
@@ -564,7 +572,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
             ) : (
               <div className="glass-panel" style={{ padding: "50px", textAlign: "center", color: "var(--text-muted)" }}>
                 <FileText size={36} color="var(--police-blue)" style={{ marginBottom: "10px" }} />
-                <h3 style={{ fontSize: "15px", color: "#f8fafc", marginBottom: "4px" }}>Select or Generate a Document</h3>
+                <h3 style={{ fontSize: "15px", color: "var(--text-heading)", marginBottom: "4px" }}>Select or Generate a Document</h3>
                 <p style={{ fontSize: "12px" }}>Choose from the 7 legal documents on the left panel to synthesize and view formatted copy.</p>
               </div>
             )}
@@ -643,10 +651,10 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
           {legalIntel ? (
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {/* Summary Analysis */}
-              <div className="glass-panel" style={{ padding: "18px", border: "1px solid var(--border-gold)", background: "rgba(10, 20, 40, 0.85)" }}>
+              <div className="glass-panel" style={{ padding: "18px", border: "1px solid var(--border-gold)", background: "var(--bg-surface-raised)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
                   <Scale size={16} color="var(--police-gold)" />
-                  <h3 style={{ fontSize: "15px", fontWeight: "700", color: "#fbbf24", margin: 0 }}>
+                  <h3 style={{ fontSize: "15px", fontWeight: "700", color: "var(--police-gold)", margin: 0 }}>
                     Incident Legal Analysis & Statutory Mapping
                   </h3>
                 </div>
@@ -657,15 +665,15 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
 
               {/* BNS Sections with IPC Mapping */}
               <div className="glass-panel" style={{ padding: "20px" }}>
-                <h3 style={{ fontSize: "15px", fontWeight: "700", marginBottom: "14px", color: "#38bdf8" }}>
+                <h3 style={{ fontSize: "15px", fontWeight: "700", marginBottom: "14px", color: "var(--bordo)" }}>
                   Suggested Bharatiya Nyaya Sanhita (BNS) Sections
                 </h3>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "14px" }}>
                   {legalIntel.bns_sections.map((s, idx) => (
-                    <div key={idx} style={{ background: "rgba(19, 29, 51, 0.8)", border: "1px solid var(--border-subtle)", borderRadius: "8px", padding: "14px" }}>
+                    <div key={idx} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "8px", padding: "14px" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
-                        <span style={{ fontSize: "14px", fontWeight: "800", color: "#38bdf8" }}>
+                        <span style={{ fontSize: "14px", fontWeight: "800", color: "var(--bordo)" }}>
                           {s.act} Sec {s.section_number}
                         </span>
                         <span className="badge badge-gold">{(s.confidence * 100).toFixed(0)}% MATCH</span>
@@ -673,7 +681,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                       <div style={{ fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>
                         {s.section_title}
                       </div>
-                      <div style={{ fontSize: "11.5px", color: "#fbbf24", marginBottom: "6px" }}>
+                      <div style={{ fontSize: "11.5px", color: "var(--police-gold)", marginBottom: "6px" }}>
                         IPC Equivalent: <strong>{s.ipc_equivalent || "N/A"}</strong>
                       </div>
                       <div style={{ fontSize: "11.5px", color: "var(--text-secondary)", marginBottom: "8px", lineHeight: "1.4" }}>
@@ -697,9 +705,9 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {legalIntel.landmark_judgments.map((j, idx) => (
-                    <div key={idx} style={{ background: "rgba(19, 29, 51, 0.7)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px" }}>
+                    <div key={idx} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
-                        <span style={{ fontSize: "13px", fontWeight: "700", color: "#f8fafc" }}>
+                        <span style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-heading)" }}>
                           {j.case_name}
                         </span>
                         <span className="badge badge-blue" style={{ fontSize: "9.5px" }}>{j.citation}</span>
@@ -726,18 +734,18 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* TAB: UNIFIED DATA POOL & OVERVIEW */}
       {activeTab === "overview" && (
         <div className="glass-panel" style={{ padding: "24px" }}>
-          <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "16px", fontWeight: "700", color: "var(--bordo)", marginBottom: "16px" }}>
             Unified Case Pool Entities
           </h2>
 
           <div className="responsive-2col">
             <div>
-              <h3 style={{ fontSize: "13.5px", fontWeight: "700", color: "#fbbf24", marginBottom: "10px" }}>
+              <h3 style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--police-gold)", marginBottom: "10px" }}>
                 Enrolled Parties ({caseData.persons.length})
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 {caseData.persons.map((p, i) => (
-                  <div key={i} style={{ background: "rgba(19, 29, 51, 0.7)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px" }}>
+                  <div key={i} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <span style={{ fontSize: "13px", fontWeight: "700" }}>{p.name}</span>
                       <span className={`badge ${p.person_type === 'ACCUSED' ? 'badge-red' : p.person_type === 'VICTIM' ? 'badge-blue' : 'badge-gold'}`} style={{ fontSize: "9px" }}>
@@ -768,7 +776,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                           className="btn btn-secondary"
                           style={{ padding: "3px 8px", fontSize: "10.5px", display: "flex", alignItems: "center", gap: "4px" }}
                         >
-                          <ShieldAlert size={11} color="#38bdf8" /> BharatPol Check
+                          <ShieldAlert size={11} color="var(--bordo)" /> BharatPol Check
                         </button>
                       </div>
                     )}
@@ -778,16 +786,16 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
             </div>
 
             <div>
-              <h3 style={{ fontSize: "13.5px", fontWeight: "700", color: "#fbbf24", marginBottom: "10px" }}>
+              <h3 style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--police-gold)", marginBottom: "10px" }}>
                 Case Incident Facts
               </h3>
-              <div style={{ background: "rgba(19, 29, 51, 0.7)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "14px", fontSize: "12.5px", lineHeight: "1.5", color: "var(--text-primary)" }}>
+              <div style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "14px", fontSize: "12.5px", lineHeight: "1.5", color: "var(--text-primary)" }}>
                 {caseData.incident_summary}
               </div>
 
               {caseData.incident_summary_original && (
-                <div style={{ marginTop: "10px", background: "rgba(19, 29, 51, 0.5)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px", fontSize: "12px", color: "var(--text-secondary)" }}>
-                  <div style={{ fontSize: "10.5px", fontWeight: "700", color: "#38bdf8", marginBottom: "3px" }}>Vernacular Original:</div>
+                <div style={{ marginTop: "10px", background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "12px", fontSize: "12px", color: "var(--text-secondary)" }}>
+                  <div style={{ fontSize: "10.5px", fontWeight: "700", color: "var(--bordo)", marginBottom: "3px" }}>Vernacular Original:</div>
                   {caseData.incident_summary_original}
                 </div>
               )}
@@ -799,7 +807,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* TAB: SEIZURES & MUDAMAL VAULT */}
       {activeTab === "seizures" && (
         <div className="glass-panel" style={{ padding: "24px" }}>
-          <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "14px" }}>
+          <h2 style={{ fontSize: "16px", fontWeight: "700", color: "var(--bordo)", marginBottom: "14px" }}>
             Mudamal Inventory &amp; Evidence Locker (Sec 105 BNSS / Sec 63 BSA)
           </h2>
 
@@ -845,29 +853,84 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* TAB: AUDIT TRAIL */}
       {activeTab === "audit" && (
         <div className="glass-panel" style={{ padding: "24px" }}>
-          <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "14px", display: "flex", alignItems: "center", gap: "8px" }}>
-            <ShieldAlert size={16} /> Tamper-Evident Case Audit Log
-          </h2>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "18px", flexWrap: "wrap", gap: "10px" }}>
+            <div>
+              <h2 style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-heading)", margin: "0 0 4px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <ShieldCheck size={18} color="#6C151E" /> Case Tamper-Evident Audit Ledger
+              </h2>
+              <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>
+                BSA Section 63 statutory chain-of-custody logging all evidentiary mutations and synthesized documents.
+              </div>
+            </div>
+            <span className="badge badge-neutral" style={{ fontSize: "11px" }}>
+              {auditLogs ? auditLogs.length : 0} Event Records
+            </span>
+          </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {auditLogs && auditLogs.length > 0 ? (
-              auditLogs.map((log, i) => (
-                <div key={i} style={{ background: "rgba(19, 29, 51, 0.6)", border: "1px solid var(--border-subtle)", borderRadius: "7px", padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div>
-                    <div style={{ fontSize: "12.5px", fontWeight: "700", color: "#f8fafc" }}>
-                      {log.action}: {log.details}
+              auditLogs.map((log, i) => {
+                const hashMatch = log.details && log.details.match(/\b([A-Fa-f0-9]{64})\b/);
+                const hash = hashMatch ? hashMatch[1] : null;
+                const isTampered = log.details && (log.details.includes("TAMPERED") || log.details.includes("Match = False"));
+                const isVerified = log.details && (log.details.includes("VERIFIED") || log.details.includes("Match = True"));
+                const isCopied = copiedAuditId === `case-audit-${i}`;
+
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      background: "var(--bg-surface-raised)",
+                      border: "1px solid var(--border-subtle)",
+                      borderRadius: "8px",
+                      padding: "12px 16px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px"
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                        <span className={`badge ${isTampered ? "badge-red" : isVerified ? "badge-green" : "badge-blue"}`} style={{ fontSize: "10px" }}>
+                          {log.action}
+                        </span>
+                        <span style={{ fontSize: "11.5px", color: "var(--text-secondary)" }}>
+                          Officer: <strong style={{ color: "var(--text-primary)" }}>{log.officer_name}</strong> ({log.role})
+                        </span>
+                      </div>
+                      <span style={{ fontSize: "11px", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+                        {new Date(log.timestamp).toLocaleString()}
+                      </span>
                     </div>
-                    <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>
-                      Officer: <strong>{log.officer_name}</strong> ({log.role})
+
+                    <div style={{ fontSize: "12.5px", color: "var(--text-primary)", fontWeight: "500", lineHeight: "1.4" }}>
+                      {log.details}
                     </div>
+
+                    {hash && (
+                      <div className="audit-hash-badge" style={{ marginTop: "4px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                          <Lock size={11} color="#0F3D3A" />
+                          <span style={{ color: "var(--text-muted)", fontSize: "10px" }}>SHA-256:</span>
+                          <span style={{ color: "var(--text-primary)", fontSize: "11px" }}>{hash}</span>
+                        </div>
+                        <button
+                          onClick={() => handleCopyAuditHash(hash, `case-audit-${i}`)}
+                          className="btn btn-secondary"
+                          style={{ padding: "1px 6px", fontSize: "10px", height: "20px" }}
+                        >
+                          {isCopied ? <Check size={10} color="#0F3D3A" /> : <Copy size={10} />}
+                          <span>{isCopied ? "Copied" : "Copy"}</span>
+                        </button>
+                      </div>
+                    )}
                   </div>
-                  <span className="badge badge-blue" style={{ fontSize: "9.5px" }}>
-                    {new Date(log.timestamp).toLocaleString()}
-                  </span>
-                </div>
-              ))
+                );
+              })
             ) : (
-              <div style={{ color: "var(--text-muted)", fontSize: "12px" }}>No audit log records found.</div>
+              <div style={{ color: "var(--text-muted)", fontSize: "12.5px", textAlign: "center", padding: "30px" }}>
+                No audit log records found for this case.
+              </div>
             )}
           </div>
         </div>
@@ -944,12 +1007,12 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
               <div>
                 <pre
                   style={{
-                    background: "#0a0f1d",
+                    background: "var(--bg-code)",
                     padding: "14px",
                     borderRadius: "6px",
                     border: "1px solid var(--border-subtle)",
                     fontSize: "12px",
-                    color: "#f8fafc",
+                    color: "var(--text-primary)",
                     fontFamily: "var(--font-mono)",
                     whiteSpace: "pre-wrap",
                     maxHeight: "260px",
@@ -984,7 +1047,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
           <div className="modal-content glass-panel" style={{ maxWidth: "600px", padding: "20px" }} onClick={e => e.stopPropagation()}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <ShieldAlert size={16} color="#38bdf8" />
+                <ShieldAlert size={16} color="var(--bordo)" />
                 <h3 style={{ margin: 0, fontSize: "15px", fontWeight: "700" }}>BharatPol Criminal Record Check</h3>
               </div>
               <button onClick={() => setBharatpolModal(null)} className="btn btn-secondary btn-icon" style={{ width: "24px", height: "24px" }}>✕</button>
@@ -996,9 +1059,9 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
               <div className="alert alert-danger">{bharatpolModal.data.error}</div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <div style={{ background: "#0a0f1d", padding: "12px", borderRadius: "6px", border: "1px solid var(--border-subtle)" }}>
+                <div style={{ background: "var(--bg-surface-raised)", padding: "12px", borderRadius: "6px", border: "1px solid var(--border-subtle)" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                    <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#f8fafc" }}>{bharatpolModal.data?.query_name}</span>
+                    <span style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--text-heading)" }}>{bharatpolModal.data?.query_name}</span>
                     <span className={`badge ${bharatpolModal.data?.history_sheeter ? 'badge-red' : 'badge-green'}`}>
                       {bharatpolModal.data?.history_sheeter ? "HISTORY SHEETER" : "CLEAN RECORD"}
                     </span>
@@ -1018,8 +1081,8 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                       Prior Inter-District Records ({bharatpolModal.data.prior_firs.length})
                     </div>
                     {bharatpolModal.data.prior_firs.map((pf, idx) => (
-                      <div key={idx} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border-subtle)", padding: "6px 8px", borderRadius: "4px", fontSize: "11px", marginBottom: "4px" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "600", color: "#f8fafc" }}>
+                      <div key={idx} style={{ background: "var(--bg-inline-card)", border: "1px solid var(--border-subtle)", padding: "6px 8px", borderRadius: "4px", fontSize: "11px", marginBottom: "4px" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "600", color: "var(--text-heading)" }}>
                           <span>{pf.fir_number} ({pf.year})</span>
                           <span className="badge badge-subtle" style={{ fontSize: "8.5px" }}>{pf.status}</span>
                         </div>
@@ -1029,7 +1092,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                   </div>
                 )}
 
-                <div style={{ background: "rgba(56, 189, 248, 0.08)", padding: "8px", borderRadius: "5px", fontSize: "11px", color: "var(--text-secondary)" }}>
+                <div style={{ background: "var(--cream-soft)", padding: "8px", borderRadius: "5px", fontSize: "11px", color: "var(--text-secondary)" }}>
                   <b>Tactical Advisory:</b> {bharatpolModal.data?.remark}
                 </div>
               </div>
@@ -1041,8 +1104,8 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* MODAL: Add Diary Step */}
       {showAddDiaryModal && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000 }}>
-          <div className="glass-panel" style={{ width: "520px", maxWidth: "90vw", padding: "24px", background: "#0f172a" }}>
-            <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "14px", color: "#38bdf8" }}>
+          <div className="glass-panel" style={{ width: "520px", maxWidth: "90vw", padding: "24px", background: "var(--bg-card)" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "14px", color: "var(--text-heading)" }}>
               Add Case Diary Investigation Event
             </h3>
 
@@ -1129,7 +1192,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* MODAL: Update Case Status */}
       {showStatusModal && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000 }}>
-          <div className="glass-panel" style={{ width: "460px", maxWidth: "90vw", padding: "24px", background: "#0f172a" }}>
+          <div className="glass-panel" style={{ width: "460px", maxWidth: "90vw", padding: "24px", background: "var(--bg-card)" }}>
             <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "14px", color: "var(--police-gold)" }}>
               Update Investigation Status
             </h3>

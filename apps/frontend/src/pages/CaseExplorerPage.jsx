@@ -126,16 +126,13 @@ export default function CaseExplorerPage({
       >
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
-            <h1 style={{ fontSize: "20px", fontWeight: "800", letterSpacing: "-0.3px", color: "#f8fafc", margin: 0 }}>
+            <h1 style={{ fontSize: "20px", fontWeight: "700", letterSpacing: "-0.3px", color: "var(--text-heading)", margin: 0 }}>
               {t.caseExplorer?.title || "Case Dossier Explorer"}
             </h1>
             <span className="badge badge-subtle" style={{ fontSize: "10px", fontWeight: "700" }}>
               {filteredCases.length} {t.caseExplorer?.totalFound || "dossiers matched"}
             </span>
           </div>
-          <p style={{ color: "var(--text-secondary)", fontSize: "12px", margin: "2px 0 0 0" }}>
-            {t.caseExplorer?.subtitle || "Comprehensive repository of all registered FIRs, accused tracking, and judicial reports."}
-          </p>
         </div>
 
         <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
@@ -144,9 +141,9 @@ export default function CaseExplorerPage({
             style={{
               display: "flex",
               alignItems: "center",
-              background: "#141b2e",
-              border: "1px solid var(--border-subtle)",
-              borderRadius: "7px",
+              background: "var(--bg-surface-raised)",
+              border: "1px solid var(--border-medium)",
+              borderRadius: "6px",
               padding: "2px"
             }}
           >
@@ -154,11 +151,11 @@ export default function CaseExplorerPage({
               onClick={() => setViewMode("cards")}
               className="btn btn-icon"
               style={{
-                background: viewMode === "cards" ? "var(--police-blue)" : "transparent",
+                background: viewMode === "cards" ? "#6C151E" : "transparent",
                 color: viewMode === "cards" ? "#fff" : "var(--text-secondary)",
                 width: "28px",
                 height: "28px",
-                borderRadius: "5px"
+                borderRadius: "4px"
               }}
               title={t.caseExplorer?.viewCards || "Dossier Cards"}
             >
@@ -168,11 +165,11 @@ export default function CaseExplorerPage({
               onClick={() => setViewMode("table")}
               className="btn btn-icon"
               style={{
-                background: viewMode === "table" ? "var(--police-blue)" : "transparent",
+                background: viewMode === "table" ? "#6C151E" : "transparent",
                 color: viewMode === "table" ? "#fff" : "var(--text-secondary)",
                 width: "28px",
                 height: "28px",
-                borderRadius: "5px"
+                borderRadius: "4px"
               }}
               title={t.caseExplorer?.viewTable || "Data Table"}
             >
@@ -197,7 +194,7 @@ export default function CaseExplorerPage({
           justifyContent: "space-between",
           flexWrap: "wrap",
           gap: "12px",
-          background: "rgba(14, 18, 28, 0.9)"
+          background: "var(--bg-surface)"
         }}
       >
         {/* Search Bar */}
@@ -209,7 +206,7 @@ export default function CaseExplorerPage({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="form-control"
-            style={{ paddingLeft: "36px", fontSize: "12px", background: "#0a0f1d" }}
+            style={{ paddingLeft: "36px", fontSize: "12px", background: "var(--bg-input)" }}
           />
         </div>
 
@@ -222,7 +219,7 @@ export default function CaseExplorerPage({
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
               className="form-control"
-              style={{ width: "auto", fontSize: "11.5px", padding: "4px 8px", background: "#0a0f1d" }}
+              style={{ width: "auto", fontSize: "11.5px", padding: "4px 8px", background: "var(--bg-input)" }}
             >
               <option value="ALL">All Stages ({cases.length})</option>
               <option value="FIR_REGISTERED">FIR Registered</option>
@@ -242,7 +239,7 @@ export default function CaseExplorerPage({
                 value={districtFilter}
                 onChange={(e) => setDistrictFilter(e.target.value)}
                 className="form-control"
-                style={{ width: "auto", fontSize: "11.5px", padding: "4px 8px", background: "#0a0f1d" }}
+                style={{ width: "auto", fontSize: "11.5px", padding: "4px 8px", background: "var(--bg-input)" }}
               >
                 <option value="ALL">All Districts</option>
                 {uniqueDistricts.map(d => (
@@ -271,7 +268,6 @@ export default function CaseExplorerPage({
           style={{
             padding: "48px 24px",
             textAlign: "center",
-            background: "rgba(14, 18, 28, 0.8)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -279,7 +275,7 @@ export default function CaseExplorerPage({
           }}
         >
           <FolderSearch size={40} color="var(--text-muted)" />
-          <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: 0 }}>
+          <h3 style={{ fontSize: "16px", color: "var(--text-heading)", margin: 0 }}>
             {t.caseExplorer?.noResults || "No case dossiers match the selected criteria"}
           </h3>
           <p style={{ fontSize: "12.5px", color: "var(--text-secondary)", maxWidth: "420px", margin: 0 }}>
@@ -315,7 +311,6 @@ export default function CaseExplorerPage({
                   display: "flex",
                   flexDirection: "column",
                   gap: "10px",
-                  background: "rgba(14, 18, 28, 0.85)",
                   border: "1px solid var(--border-subtle)",
                   transition: "all 0.18s ease"
                 }}
@@ -324,7 +319,7 @@ export default function CaseExplorerPage({
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", flexWrap: "wrap" }}>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
-                      <span style={{ fontSize: "13.5px", fontWeight: "800", color: "#f8fafc", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>
+                      <span style={{ fontSize: "13.5px", fontWeight: "800", color: "var(--text-heading)", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>
                         {c.fir_number}
                       </span>
                       <span className="badge badge-subtle" style={{ fontSize: "9px" }}>
@@ -344,10 +339,10 @@ export default function CaseExplorerPage({
                 {/* Incident Narrative Snippet */}
                 <div
                   style={{
-                    background: "#0a0f1d",
+                    background: "var(--bg-snippet)",
                     padding: "8px 10px",
                     borderRadius: "6px",
-                    border: "1px solid rgba(255,255,255,0.04)"
+                    border: "1px solid var(--border-subtle)"
                   }}
                 >
                   <p className="card-summary" style={{ margin: 0 }}>
@@ -357,7 +352,7 @@ export default function CaseExplorerPage({
 
                 {/* Parties Involved Row */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
-                  <div style={{ background: "rgba(56, 189, 248, 0.05)", padding: "7px 9px", borderRadius: "5px", border: "1px solid rgba(56, 189, 248, 0.15)", minWidth: 0 }}>
+                  <div style={{ background: "var(--complainant-bg)", padding: "7px 9px", borderRadius: "5px", border: "1px solid var(--complainant-border)", minWidth: 0 }}>
                     <div style={{ color: "var(--police-blue)", fontWeight: "700", fontSize: "9.5px", textTransform: "uppercase", marginBottom: "2px", letterSpacing: "0.3px" }}>
                       Complainant
                     </div>
@@ -366,7 +361,7 @@ export default function CaseExplorerPage({
                     </div>
                   </div>
 
-                  <div style={{ background: "rgba(244, 63, 94, 0.05)", padding: "7px 9px", borderRadius: "5px", border: "1px solid rgba(244, 63, 94, 0.15)", minWidth: 0 }}>
+                  <div style={{ background: "var(--accused-bg)", padding: "7px 9px", borderRadius: "5px", border: "1px solid var(--accused-border)", minWidth: 0 }}>
                     <div style={{ color: "var(--police-red)", fontWeight: "700", fontSize: "9.5px", textTransform: "uppercase", marginBottom: "2px", letterSpacing: "0.3px" }}>
                       Accused ({accusedList.length})
                     </div>
@@ -422,7 +417,7 @@ export default function CaseExplorerPage({
                       style={{ width: "26px", height: "26px", borderRadius: "5px", padding: 0 }}
                       title="Check BharatPol National Database"
                     >
-                      <ShieldAlert size={13} color="#38bdf8" />
+                      <ShieldAlert size={13} color="var(--bordo)" />
                     </button>
 
                     <button
@@ -431,7 +426,7 @@ export default function CaseExplorerPage({
                       style={{ width: "26px", height: "26px", borderRadius: "5px", padding: 0 }}
                       title="Print / Save PDF (Ctrl+P)"
                     >
-                      <Printer size={13} color="#fbbf24" />
+                      <Printer size={13} color="var(--police-gold)" />
                     </button>
                   </div>
 
@@ -470,11 +465,11 @@ export default function CaseExplorerPage({
                 const accused = (c.persons || []).find(p => p.person_type === "ACCUSED");
                 return (
                   <tr key={c.id} style={{ cursor: "pointer", borderBottom: "1px solid rgba(255,255,255,0.03)" }} onClick={() => onSelectCase(c.id)}>
-                    <td style={{ padding: "10px 14px", fontWeight: "700", fontFamily: "var(--font-mono)", color: "#f8fafc", whiteSpace: "nowrap" }}>
+                    <td style={{ padding: "10px 14px", fontWeight: "700", fontFamily: "var(--font-mono)", color: "var(--text-heading)", whiteSpace: "nowrap" }}>
                       {c.fir_number}
                     </td>
                     <td style={{ padding: "10px 14px" }}>
-                      <div style={{ color: "#f8fafc", fontWeight: "500" }}>{c.police_station}</div>
+                      <div style={{ color: "var(--text-primary)", fontWeight: "500" }}>{c.police_station}</div>
                       <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>{c.district}</div>
                     </td>
                     <td style={{ padding: "10px 14px" }}>{victim ? victim.name : "—"}</td>
@@ -515,7 +510,7 @@ export default function CaseExplorerPage({
                           style={{ width: "26px", height: "26px", padding: 0 }}
                           title="BharatPol Record Check"
                         >
-                          <ShieldAlert size={12} color="#38bdf8" />
+                          <ShieldAlert size={12} color="var(--bordo)" />
                         </button>
                         <button
                           onClick={() => onSelectCase(c.id)}
@@ -578,12 +573,12 @@ export default function CaseExplorerPage({
               <div>
                 <pre
                   style={{
-                    background: "#0a0f1d",
+                    background: "var(--bg-code)",
                     padding: "12px",
                     borderRadius: "6px",
                     border: "1px solid var(--border-subtle)",
                     fontSize: "11.5px",
-                    color: "#f8fafc",
+                    color: "var(--text-primary)",
                     fontFamily: "var(--font-mono)",
                     whiteSpace: "pre-wrap",
                     maxHeight: "260px",
@@ -618,8 +613,8 @@ export default function CaseExplorerPage({
           <div className="modal-content glass-panel" style={{ padding: "20px" }} onClick={e => e.stopPropagation()}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "rgba(56, 189, 248, 0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <ShieldAlert size={16} color="#38bdf8" />
+                <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "var(--bordo-soft)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <ShieldAlert size={16} color="var(--bordo)" />
                 </div>
                 <div>
                   <h3 style={{ margin: 0, fontSize: "14.5px", fontWeight: "700" }}>BharatPol National Criminal Record</h3>
@@ -635,9 +630,9 @@ export default function CaseExplorerPage({
               <div className="alert alert-danger">{modalData.error}</div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <div style={{ background: "#0a0f1d", padding: "12px", borderRadius: "6px", border: "1px solid var(--border-subtle)" }}>
+                <div style={{ background: "var(--bg-code)", padding: "12px", borderRadius: "6px", border: "1px solid var(--border-subtle)" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px", flexWrap: "wrap", gap: "4px" }}>
-                    <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#f8fafc" }}>{modalData?.query_name}</span>
+                    <span style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--text-heading)" }}>{modalData?.query_name}</span>
                     <span className={`badge ${modalData?.history_sheeter ? 'badge-red' : 'badge-green'}`}>
                       {modalData?.history_sheeter ? "HISTORY SHEETER" : "CLEAN RECORD"}
                     </span>
@@ -658,8 +653,8 @@ export default function CaseExplorerPage({
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                       {modalData.prior_firs.map((pf, idx) => (
-                        <div key={idx} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border-subtle)", padding: "6px 8px", borderRadius: "4px", fontSize: "11px" }}>
-                          <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "600", color: "#f8fafc" }}>
+                        <div key={idx} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", padding: "6px 8px", borderRadius: "4px", fontSize: "11px" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "600", color: "var(--text-heading)" }}>
                             <span>{pf.fir_number} ({pf.year})</span>
                             <span className="badge badge-subtle" style={{ fontSize: "8.5px" }}>{pf.status}</span>
                           </div>

@@ -89,17 +89,17 @@ export default function SearchPage({ onSelectCase, currentLang }) {
           {/* BNS Statutes Results */}
           {results.bns_statutes.length > 0 && (
             <div>
-              <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#fbbf24", marginBottom: "12px", display: "flex", alignItems: "center", gap: "6px" }}>
+              <h2 style={{ fontSize: "16px", fontWeight: "700", color: "var(--police-gold)", marginBottom: "12px", display: "flex", alignItems: "center", gap: "6px" }}>
                 <BookOpen size={16} /> BNS Statutes Matching Query ({results.bns_statutes.length})
               </h2>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "12px" }}>
                 {results.bns_statutes.map((s, idx) => (
                   <div key={idx} className="glass-panel" style={{ padding: "16px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                      <span style={{ fontWeight: "800", color: "#38bdf8" }}>BNS Sec {s.section}</span>
+                      <span style={{ fontWeight: "800", color: "var(--bordo)" }}>BNS Sec {s.section}</span>
                       <span className="badge badge-gold" style={{ fontSize: "9.5px" }}>{s.ipc_equivalent}</span>
                     </div>
-                    <div style={{ fontSize: "13.5px", fontWeight: "700", marginBottom: "4px" }}>{s.title}</div>
+                    <div style={{ fontSize: "13.5px", fontWeight: "700", marginBottom: "4px", color: "var(--text-heading)" }}>{s.title}</div>
                     <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>{s.description}</div>
                   </div>
                 ))}
@@ -117,7 +117,7 @@ export default function SearchPage({ onSelectCase, currentLang }) {
                 {results.landmark_precedents.map((j, idx) => (
                   <div key={idx} className="glass-panel" style={{ padding: "16px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                      <span style={{ fontWeight: "700", color: "#f8fafc" }}>{j.case_name}</span>
+                      <span style={{ fontWeight: "700", color: "var(--text-heading)" }}>{j.case_name}</span>
                       <span className="badge badge-blue" style={{ fontSize: "10px" }}>{j.citation}</span>
                     </div>
                     <div style={{ fontSize: "12.5px", color: "var(--text-secondary)" }}>

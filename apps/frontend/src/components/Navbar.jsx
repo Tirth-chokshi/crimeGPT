@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Shield, Globe, UserCheck, Clock, Menu, X, PanelLeftClose,
-  PanelLeftOpen, Scale, Radio, KeyRound
+  PanelLeftOpen, Scale, Radio, KeyRound, Sun, Moon
 } from "lucide-react";
 import { translations } from "../translations";
 import { api } from "../api";
@@ -11,6 +11,8 @@ export default function Navbar({
   setLang,
   currentRole,
   setRole,
+  theme,
+  setTheme,
   policeStation,
   isSidebarCollapsed,
   setIsSidebarCollapsed,
@@ -57,11 +59,11 @@ export default function Navbar({
   const getRoleBadge = () => {
     switch (currentRole) {
       case "SHO":
-        return { label: "SHO Oversight", color: "#d29922", bg: "rgba(210, 153, 34, 0.12)", border: "#d29922" };
+        return { label: "SHO Oversight", color: "#E5B061", bg: "rgba(201, 138, 44, 0.15)", border: "#C98A2C" };
       case "LEGAL_ADVISOR":
-        return { label: "Prosecutor Scrutiny", color: "#a371f7", bg: "rgba(163, 113, 247, 0.12)", border: "#a371f7" };
+        return { label: "Prosecutor Scrutiny", color: "#E2AEC0", bg: "rgba(90, 42, 56, 0.25)", border: "#6C151E" };
       default:
-        return { label: "IO Field Ops", color: "#58a6ff", bg: "rgba(56, 139, 253, 0.12)", border: "#388bfd" };
+        return { label: "IO Field Ops", color: "#F5DABF", bg: "rgba(108, 21, 30, 0.25)", border: "#6C151E" };
     }
   };
 
@@ -110,24 +112,24 @@ export default function Navbar({
             borderRadius: "6px"
           }}
         >
-          {isSidebarCollapsed ? <PanelLeftOpen size={14} color="var(--police-blue)" /> : <PanelLeftClose size={14} />}
+          {isSidebarCollapsed ? <PanelLeftOpen size={14} color="#6C151E" /> : <PanelLeftClose size={14} />}
         </button>
 
         {/* Brand Emblem */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <div
             style={{
-              width: "30px",
-              height: "30px",
+              width: "32px",
+              height: "32px",
               borderRadius: "6px",
-              background: "#1f6feb",
+              background: "#6C151E",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0
             }}
           >
-            <Shield size={16} color="#ffffff" />
+            <Shield size={17} color="#F5DABF" />
           </div>
 
           <div>
@@ -137,65 +139,26 @@ export default function Navbar({
                   fontSize: "15px",
                   fontWeight: "700",
                   letterSpacing: "-0.2px",
-                  color: "var(--text-primary)"
+                  color: "var(--text-heading)"
                 }}
               >
                 {t.appName}
               </span>
               <span className="badge badge-bns" style={{ fontSize: "9px", padding: "1px 5px" }} id="statutory-badge">
-                BNS 2023
+                BNS / BNSS
               </span>
             </div>
             <div style={{ fontSize: "11px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "5px" }}>
               <span style={{ maxWidth: "220px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                 {policeStation || "Navrangpura PS, Ahmedabad"}
               </span>
-              <span>•</span>
-              <span style={{ color: "var(--police-blue)", fontWeight: "600" }}>GJ Police</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Center Live Engine Status & Clock (Desktop) */}
-      <div className="navbar-center-pill" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-            fontSize: "11.5px",
-            color: "var(--text-secondary)",
-            background: "var(--bg-surface-raised)",
-            border: "1px solid var(--border-medium)",
-            padding: "3px 10px",
-            borderRadius: "4px"
-          }}
-        >
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2ea043" }}></span>
-          <span>BNS Corpus Active</span>
-        </div>
-
-        {/* Active Role Capability Pill */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            background: roleMeta.bg,
-            border: `1px solid ${roleMeta.border}`,
-            padding: "3px 8px",
-            borderRadius: "4px",
-            fontSize: "11px",
-            color: roleMeta.color,
-            fontWeight: "600"
-          }}
-          title="RBAC Active Session"
-        >
-          <KeyRound size={11} color={roleMeta.color} />
-          <span>{roleMeta.label}</span>
-        </div>
-
+      {/* Center Clock (Clean, uncluttered) */}
+      <div className="navbar-center-pill" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <div
           style={{
             display: "flex",
@@ -203,14 +166,14 @@ export default function Navbar({
             gap: "5px",
             background: "var(--bg-surface-raised)",
             border: "1px solid var(--border-medium)",
-            padding: "3px 8px",
+            padding: "3px 9px",
             borderRadius: "4px",
             fontFamily: "var(--font-mono)",
             fontSize: "11px",
             color: "var(--text-secondary)"
           }}
         >
-          <Clock size={11} color="var(--police-blue)" />
+          <Clock size={11} color="var(--text-muted)" />
           <span>{timeStr}</span>
         </div>
       </div>
@@ -251,7 +214,7 @@ export default function Navbar({
             border: "1px solid var(--border-medium)"
           }}
         >
-          <Globe size={11} color="var(--police-blue)" style={{ marginLeft: "4px", marginRight: "2px" }} />
+          <Globe size={11} color="var(--text-muted)" style={{ marginLeft: "4px", marginRight: "2px" }} />
           {[
             { code: "en", label: "EN" },
             { code: "hi", label: "हिन्दी" },
@@ -261,8 +224,8 @@ export default function Navbar({
               key={lang.code}
               onClick={() => setLang(lang.code)}
               style={{
-                background: currentLang === lang.code ? "#1f6feb" : "transparent",
-                color: currentLang === lang.code ? "#ffffff" : "var(--text-secondary)",
+                background: currentLang === lang.code ? "#6C151E" : "transparent",
+                color: currentLang === lang.code ? "#FDF3E7" : "var(--text-secondary)",
                 border: "none",
                 borderRadius: "3px",
                 padding: "2px 6px",
@@ -276,6 +239,32 @@ export default function Navbar({
             </button>
           ))}
         </div>
+
+        {/* Theme Mode Switcher (Dark / Light) */}
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="btn btn-secondary btn-icon"
+          title={theme === "light" ? "Switch to Institutional Dark Mode" : "Switch to Crisp Light Mode"}
+          id="theme-mode-toggle"
+          style={{
+            background: "var(--bg-surface-raised)",
+            border: "1px solid var(--border-medium)",
+            color: "var(--text-secondary)",
+            width: "30px",
+            height: "30px",
+            borderRadius: "4px",
+            cursor: "pointer",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          {theme === "light" ? (
+            <Moon size={14} color="#6C151E" />
+          ) : (
+            <Sun size={14} color="#F5DABF" />
+          )}
+        </button>
       </div>
 
       <style>{`

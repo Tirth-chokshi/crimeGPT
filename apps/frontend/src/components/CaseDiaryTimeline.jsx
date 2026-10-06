@@ -40,14 +40,14 @@ export default function CaseDiaryTimeline({
 
   const renderStepIcon = (type) => {
     switch (type) {
-      case "CRIME_SCENE_VISIT": return <Search size={14} color="#38bdf8" />;
-      case "WITNESS_EXAMINATION": return <User size={14} color="#38bdf8" />;
-      case "SEIZURE": return <Shield size={14} color="#fbbf24" />;
-      case "ARREST": return <AlertCircle size={14} color="#f87171" />;
-      case "MEDICAL_EXAM": return <CheckCircle2 size={14} color="#34d399" />;
-      case "REMAND_PRODUCED": return <Scale size={14} color="#a78bfa" />;
-      case "CHARGESHEET": return <FileText size={14} color="#34d399" />;
-      default: return <BookOpen size={14} color="#94a3b8" />;
+      case "CRIME_SCENE_VISIT": return <Search size={14} color="var(--bordo)" />;
+      case "WITNESS_EXAMINATION": return <User size={14} color="var(--bordo)" />;
+      case "SEIZURE": return <Shield size={14} color="var(--police-gold)" />;
+      case "ARREST": return <AlertCircle size={14} color="#ef4444" />;
+      case "MEDICAL_EXAM": return <CheckCircle2 size={14} color="#10b981" />;
+      case "REMAND_PRODUCED": return <Scale size={14} color="#8b5cf6" />;
+      case "CHARGESHEET": return <FileText size={14} color="#10b981" />;
+      default: return <BookOpen size={14} color="var(--text-muted)" />;
     }
   };
 
@@ -129,17 +129,17 @@ export default function CaseDiaryTimeline({
               width: "38px",
               height: "38px",
               borderRadius: "8px",
-              background: "rgba(56, 189, 248, 0.15)",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
+              background: "var(--bordo-soft)",
+              border: "1px solid var(--border-subtle)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center"
             }}
           >
-            <BookOpen size={20} color="#38bdf8" />
+            <BookOpen size={20} color="var(--bordo)" />
           </div>
           <div>
-            <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0, color: "#f8fafc" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
               Case Diary Chronology (Sec 187 BNSS)
             </h3>
             <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>
@@ -199,7 +199,7 @@ export default function CaseDiaryTimeline({
               top: "14px",
               bottom: "14px",
               width: "2px",
-              background: "linear-gradient(180deg, #38bdf8 0%, rgba(56, 189, 248, 0.2) 100%)"
+              background: "var(--border-subtle)"
             }}
           />
 
@@ -228,7 +228,7 @@ export default function CaseDiaryTimeline({
                       width: "30px",
                       height: "30px",
                       borderRadius: "50%",
-                      background: "#0f172a",
+                      background: "var(--bg-surface-raised)",
                       border: "1px solid var(--border-subtle)",
                       display: "flex",
                       alignItems: "center",
@@ -244,7 +244,7 @@ export default function CaseDiaryTimeline({
                     className="glass-panel"
                     style={{
                       padding: "16px 20px",
-                      background: "rgba(19, 29, 51, 0.75)",
+                      background: "var(--bg-surface)",
                       border: "1px solid var(--border-subtle)",
                       borderRadius: "10px",
                       transition: "transform 0.2s ease, border-color 0.2s ease"
@@ -273,18 +273,18 @@ export default function CaseDiaryTimeline({
                             <span
                               style={{
                                 fontSize: "10px",
-                                color: "#38bdf8",
-                                background: "rgba(56, 189, 248, 0.1)",
+                                color: "var(--bordo)",
+                                background: "var(--bordo-soft)",
                                 padding: "2px 8px",
                                 borderRadius: "4px",
-                                border: "1px solid rgba(56, 189, 248, 0.25)"
+                                border: "1px solid var(--border-subtle)"
                               }}
                             >
                               {ev.statutory_deadline_reference}
                             </span>
                           )}
                         </div>
-                        <h4 style={{ fontSize: "15px", fontWeight: "700", margin: 0, color: "#f8fafc" }}>
+                        <h4 style={{ fontSize: "15px", fontWeight: "700", margin: 0, color: "var(--text-heading)" }}>
                           {ev.step_title}
                         </h4>
                       </div>
@@ -315,7 +315,7 @@ export default function CaseDiaryTimeline({
                         alignItems: "center",
                         fontSize: "11.5px",
                         color: "var(--text-muted)",
-                        borderTop: "1px solid rgba(255, 255, 255, 0.05)",
+                        borderTop: "1px solid var(--border-subtle)",
                         paddingTop: "10px",
                         flexWrap: "wrap",
                         gap: "8px"
@@ -327,7 +327,7 @@ export default function CaseDiaryTimeline({
                       </div>
 
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                        <User size={12} color="#38bdf8" />
+                        <User size={12} color="var(--bordo)" />
                         <span>
                           {ev.officer_name} ({ev.officer_badge || "IO"})
                         </span>
@@ -350,8 +350,8 @@ export default function CaseDiaryTimeline({
               maxWidth: "600px",
               width: "90%",
               padding: "28px",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.8)",
+              border: "1px solid var(--border-subtle)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)",
               position: "relative"
             }}
           >
@@ -363,16 +363,16 @@ export default function CaseDiaryTimeline({
                     width: "36px",
                     height: "36px",
                     borderRadius: "8px",
-                    background: "rgba(56, 189, 248, 0.15)",
+                    background: "var(--bordo-soft)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center"
                   }}
                 >
-                  <BookOpen size={18} color="#38bdf8" />
+                  <BookOpen size={18} color="var(--bordo)" />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0 }}>
+                  <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                     Record Investigation Step
                   </h3>
                   <span style={{ fontSize: "11.5px", color: "var(--text-muted)" }}>

@@ -79,10 +79,10 @@ export default function ComplianceClockPanel({
         };
       default:
         return {
-          border: "1px solid rgba(56, 189, 248, 0.3)",
-          background: "rgba(56, 189, 248, 0.06)",
+          border: "1px solid var(--border-subtle)",
+          background: "var(--cream-soft)",
           badge: "badge-blue",
-          icon: <Info size={15} color="#38bdf8" />
+          icon: <Info size={15} color="var(--bordo)" />
         };
     }
   };
@@ -96,7 +96,7 @@ export default function ComplianceClockPanel({
         className="glass-panel"
         style={{
           padding: "18px 24px",
-          background: "#161b22",
+          background: "var(--bg-surface-raised)",
           border: "1px solid var(--border-subtle)",
           display: "flex",
           justifyContent: "space-between",
@@ -122,7 +122,7 @@ export default function ComplianceClockPanel({
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0, color: "#f8fafc" }}>
+              <h3 style={{ fontSize: "16px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                 BNSS Statutory Compliance Radar
               </h3>
               <span className="badge badge-gold" style={{ fontSize: "10px" }}>
@@ -174,7 +174,7 @@ export default function ComplianceClockPanel({
                   <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
                     <div style={{ marginTop: "2px" }}>{style.icon}</div>
                     <div>
-                      <div style={{ fontSize: "13px", fontWeight: "700", color: "#f8fafc", marginBottom: "3px" }}>
+                      <div style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-heading)", marginBottom: "3px" }}>
                         {alert.message}
                       </div>
                       {alert.mandate && (
@@ -196,7 +196,7 @@ export default function ComplianceClockPanel({
 
       {/* Per-Accused Compliance Cards */}
       <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-        <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#38bdf8", margin: "4px 0 0 0", display: "flex", alignItems: "center", gap: "8px" }}>
+        <h4 style={{ fontSize: "14px", fontWeight: "700", color: "var(--bordo)", margin: "4px 0 0 0", display: "flex", alignItems: "center", gap: "8px" }}>
           <Clock size={16} /> Live Custody & Investigation Timers
         </h4>
 
@@ -215,7 +215,7 @@ export default function ComplianceClockPanel({
               {clocks[0]?.chargesheet_clock && (
                 <div
                   style={{
-                    background: "rgba(19, 29, 51, 0.8)",
+                    background: "var(--bg-surface-raised)",
                     border: "1px solid var(--border-subtle)",
                     borderRadius: "8px",
                     padding: "14px",
@@ -233,7 +233,7 @@ export default function ComplianceClockPanel({
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "var(--text-secondary)" }}>
                     <span>Statutory Period: {clocks[0].chargesheet_clock.chargesheet_days_allowed} Days</span>
                     <span>Due Date: {clocks[0].chargesheet_clock.deadline_ist}</span>
-                    <span style={{ fontWeight: "700", color: "#38bdf8" }}>
+                    <span style={{ fontWeight: "700", color: "var(--bordo)" }}>
                       {clocks[0].chargesheet_clock.days_remaining} Days Left
                     </span>
                   </div>
@@ -276,18 +276,18 @@ export default function ComplianceClockPanel({
                         width: "36px",
                         height: "36px",
                         borderRadius: "50%",
-                        background: "rgba(56, 189, 248, 0.15)",
-                        border: "1px solid rgba(56, 189, 248, 0.3)",
+                        background: "var(--bordo-soft)",
+                        border: "1px solid var(--border-subtle)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center"
                       }}
                     >
-                      <User size={18} color="#38bdf8" />
+                      <User size={18} color="var(--bordo)" />
                     </div>
                     <div>
                       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <span style={{ fontSize: "15px", fontWeight: "800", color: "#f8fafc" }}>
+                        <span style={{ fontSize: "15px", fontWeight: "800", color: "var(--text-heading)" }}>
                           {clock.accused_name}
                         </span>
                         <span className="badge badge-purple" style={{ fontSize: "10px" }}>
@@ -318,7 +318,7 @@ export default function ComplianceClockPanel({
                   {/* Clock 1: 24-Hour Magistrate Production */}
                   <div
                     style={{
-                      background: "rgba(19, 29, 51, 0.7)",
+                      background: "var(--bg-surface-raised)",
                       border: "1px solid var(--border-subtle)",
                       borderRadius: "8px",
                       padding: "14px",
@@ -329,7 +329,7 @@ export default function ComplianceClockPanel({
                   >
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                        <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
+                        <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
                           <Hourglass size={14} color="#f59e0b" /> 24h Magistrate Production
                         </span>
                         <span className={`badge ${prodBadge.className}`} style={{ fontSize: "9.5px", display: "flex", alignItems: "center", gap: "4px" }}>
@@ -361,7 +361,7 @@ export default function ComplianceClockPanel({
                   {/* Clock 2: 15-Day Police Remand Cap */}
                   <div
                     style={{
-                      background: "rgba(19, 29, 51, 0.7)",
+                      background: "var(--bg-surface-raised)",
                       border: "1px solid var(--border-subtle)",
                       borderRadius: "8px",
                       padding: "14px",
@@ -372,8 +372,8 @@ export default function ComplianceClockPanel({
                   >
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                        <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
-                          <Scale size={14} color="#38bdf8" /> 15-Day Police Remand Cap
+                        <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
+                          <Scale size={14} color="var(--bordo)" /> 15-Day Police Remand Cap
                         </span>
                         <span className={`badge ${remBadge.className}`} style={{ fontSize: "9.5px", display: "flex", alignItems: "center", gap: "4px" }}>
                           {remBadge.icon} {remBadge.label}
@@ -381,7 +381,7 @@ export default function ComplianceClockPanel({
                       </div>
 
                       <div style={{ margin: "10px 0" }}>
-                        <div style={{ fontSize: "22px", fontWeight: "900", color: "#38bdf8" }}>
+                        <div style={{ fontSize: "22px", fontWeight: "900", color: "var(--bordo)" }}>
                           {rem15d.days_remaining} <span style={{ fontSize: "13px", fontWeight: "500" }}>days left of 15-day cap</span>
                         </div>
                         {/* Progress Bar */}
@@ -390,7 +390,7 @@ export default function ComplianceClockPanel({
                             style={{
                               width: `${remandPct}%`,
                               height: "100%",
-                              background: remandPct > 80 ? "#ef4444" : remandPct > 50 ? "#f59e0b" : "#38bdf8",
+                              background: remandPct > 80 ? "#ef4444" : remandPct > 50 ? "#f59e0b" : "var(--bordo)",
                               transition: "width 0.3s ease"
                             }}
                           />
@@ -409,7 +409,7 @@ export default function ComplianceClockPanel({
                   {/* Clock 3: 60/90-Day Chargesheet & Default Bail */}
                   <div
                     style={{
-                      background: "rgba(19, 29, 51, 0.7)",
+                      background: "var(--bg-surface-raised)",
                       border: "1px solid var(--border-subtle)",
                       borderRadius: "8px",
                       padding: "14px",
@@ -420,7 +420,7 @@ export default function ComplianceClockPanel({
                   >
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                        <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc", display: "flex", alignItems: "center", gap: "6px" }}>
+                        <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)", display: "flex", alignItems: "center", gap: "6px" }}>
                           <FileText size={14} color="#a855f7" /> Chargesheet / Default Bail
                         </span>
                         <span className={`badge ${csBadge.className}`} style={{ fontSize: "9.5px", display: "flex", alignItems: "center", gap: "4px" }}>
@@ -466,7 +466,7 @@ export default function ComplianceClockPanel({
             padding: 0
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "700", color: "#38bdf8" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "700", color: "var(--bordo)" }}>
             <Zap size={15} /> Active BNSS 2023 Statutory Directives & Timelines
           </div>
           {showAllRules ? <ChevronUp size={16} color="var(--text-secondary)" /> : <ChevronDown size={16} color="var(--text-secondary)" />}
@@ -506,9 +506,9 @@ export default function ComplianceClockPanel({
                 mandate: "First-time undertrial prisoners who have undergone detention for 1/3rd of the maximum sentence are entitled to release on bail."
               }
             ].map((rule, i) => (
-              <div key={i} style={{ background: "rgba(19, 29, 51, 0.6)", borderRadius: "6px", padding: "10px 14px" }}>
+              <div key={i} style={{ background: "var(--bg-surface-raised)", borderRadius: "6px", padding: "10px 14px", border: "1px solid var(--border-subtle)" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: "700", color: "#f8fafc" }}>{rule.title}</span>
+                  <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-heading)" }}>{rule.title}</span>
                   <span className="badge badge-gold" style={{ fontSize: "9px" }}>{rule.section}</span>
                 </div>
                 <div style={{ fontSize: "11.5px", color: "var(--text-secondary)", lineHeight: "1.4" }}>

@@ -295,7 +295,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
               flex: "1 0 auto",
               padding: "8px 12px",
               background: step === s.num ? "var(--police-blue)" : "transparent",
-              color: step === s.num ? "#050b14" : step > s.num ? "#38bdf8" : "var(--text-muted)",
+              color: step === s.num ? "#ffffff" : step > s.num ? "var(--bordo)" : "var(--text-muted)",
               border: "none",
               borderRadius: "6px",
               fontWeight: step === s.num ? "700" : "600",
@@ -313,7 +313,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
       {/* STEP 1: FIR & Station Details */}
       {step === 1 && (
         <div className="glass-panel" style={{ padding: "24px" }}>
-          <h2 style={{ fontSize: "17px", fontWeight: "700", marginBottom: "16px", color: "#38bdf8" }}>
+          <h2 style={{ fontSize: "17px", fontWeight: "700", marginBottom: "16px", color: "var(--bordo)" }}>
             FIR Identification & Police Jurisdiction
           </h2>
 
@@ -412,7 +412,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
         <div className="glass-panel" style={{ padding: "28px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
             <div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8" }}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--bordo)" }}>
                 Involved Parties (Victims, Accused, Witnesses)
               </h2>
               <p style={{ fontSize: "12.5px", color: "var(--text-secondary)" }}>
@@ -435,7 +435,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {formData.persons.map((p, idx) => (
-              <div key={idx} style={{ background: "rgba(19, 29, 51, 0.7)", border: "1px solid var(--border-subtle)", borderRadius: "10px", padding: "18px" }}>
+              <div key={idx} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "10px", padding: "18px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <select
@@ -583,7 +583,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
       {step === 3 && (
         <div className="glass-panel" style={{ padding: "28px" }}>
           <div style={{ marginBottom: "20px" }}>
-            <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8" }}>
+            <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--bordo)" }}>
               Incident Narrative & AI Legal Intelligence
             </h2>
             <p style={{ fontSize: "12.5px", color: "var(--text-secondary)" }}>
@@ -601,7 +601,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   type="button"
                   onClick={() => setIsVoiceModalOpen(true)}
                   className="btn btn-secondary"
-                  style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "var(--police-gold)", borderColor: "rgba(245, 158, 11, 0.4)" }}
+                  style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "var(--police-gold)", borderColor: "var(--border-subtle)" }}
                 >
                   <Mic size={14} /> Record Voice Statement
                 </button>
@@ -609,7 +609,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   type="button"
                   onClick={() => setIsOcrModalOpen(true)}
                   className="btn btn-secondary"
-                  style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "#38bdf8", borderColor: "rgba(56, 189, 248, 0.4)" }}
+                  style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "var(--bordo)", borderColor: "var(--border-subtle)" }}
                 >
                   <FileSearch size={14} /> Scan Paper Complaint (OCR)
                 </button>
@@ -668,11 +668,11 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
 
           {/* AI Suggestions Results Panel */}
           {aiSuggestions && (
-            <div style={{ background: "rgba(10, 20, 40, 0.85)", border: "1px solid var(--border-gold)", borderRadius: "12px", padding: "20px", marginBottom: "20px" }}>
+            <div style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-gold)", borderRadius: "12px", padding: "20px", marginBottom: "20px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Scale size={18} color="var(--police-gold)" />
-                  <span style={{ fontSize: "15px", fontWeight: "800", color: "#fbbf24" }}>
+                  <span style={{ fontSize: "15px", fontWeight: "800", color: "var(--police-gold)" }}>
                     CrimeGPT Legal Recommendations
                   </span>
                   <span className="badge badge-gold">Language: {aiSuggestions.detected_language.toUpperCase()}</span>
@@ -695,7 +695,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                       key={idx}
                       onClick={() => toggleSection(sec)}
                       style={{
-                        background: isSelected ? "rgba(56, 189, 248, 0.15)" : "rgba(15, 23, 42, 0.6)",
+                        background: isSelected ? "var(--bordo-soft)" : "var(--bg-surface-raised)",
                         border: isSelected ? "1px solid var(--police-blue)" : "1px solid var(--border-subtle)",
                         borderRadius: "8px",
                         padding: "12px",
@@ -704,16 +704,16 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                       }}
                     >
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
-                        <span style={{ fontWeight: "800", color: "#38bdf8", fontSize: "14px" }}>
+                        <span style={{ fontWeight: "800", color: "var(--bordo)", fontSize: "14px" }}>
                           {sec.act} Sec {sec.section_number}
                         </span>
                         <span className="badge badge-blue">{(sec.confidence * 100).toFixed(0)}% MATCH</span>
                       </div>
-                      <div style={{ fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>{sec.section_title}</div>
+                      <div style={{ fontSize: "13px", fontWeight: "600", marginBottom: "4px", color: "var(--text-heading)" }}>{sec.section_title}</div>
                       <div style={{ fontSize: "11.5px", color: "var(--police-gold)", marginBottom: "6px" }}>
                         Legacy: {sec.ipc_equivalent}
                       </div>
-                      <div style={{ fontSize: "11.5px", color: "var(--text-muted)", lineHeight: "1.3" }}>
+                      <div style={{ fontSize: "11.5px", color: "var(--text-secondary)", lineHeight: "1.3" }}>
                         {sec.rationale}
                       </div>
                     </div>
@@ -723,14 +723,14 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
 
               {/* Landmark Judgments & BNSS Protocols */}
               {aiSuggestions.landmark_judgments && aiSuggestions.landmark_judgments.length > 0 && (
-                <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)", paddingTop: "14px" }}>
-                  <div style={{ fontSize: "12.5px", fontWeight: "700", color: "#fbbf24", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
+                <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: "14px" }}>
+                  <div style={{ fontSize: "12.5px", fontWeight: "700", color: "var(--police-gold)", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
                     <Scale size={15} /> Applicable Landmark Supreme Court Judgments:
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                     {aiSuggestions.landmark_judgments.map((j, i) => (
-                      <div key={i} style={{ fontSize: "12px", color: "var(--text-secondary)", background: "rgba(255, 255, 255, 0.03)", padding: "6px 10px", borderRadius: "6px" }}>
-                        <span style={{ fontWeight: "700", color: "#f8fafc" }}>{j.case_name} ({j.citation}): </span>
+                      <div key={i} style={{ fontSize: "12px", color: "var(--text-secondary)", background: "var(--bg-surface-raised)", padding: "8px 12px", borderRadius: "6px", border: "1px solid var(--border-subtle)" }}>
+                        <span style={{ fontWeight: "700", color: "var(--text-heading)" }}>{j.case_name} ({j.citation}): </span>
                         <span>{j.principle}</span>
                       </div>
                     ))}
@@ -756,7 +756,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
         <div className="glass-panel" style={{ padding: "28px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
             <div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8" }}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--bordo)" }}>
                 Seizures & Mudamal Inventory (Section 105 BNSS)
               </h2>
               <p style={{ fontSize: "12.5px", color: "var(--text-secondary)" }}>
@@ -770,7 +770,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {formData.seizures.map((sz, idx) => (
-              <div key={idx} style={{ background: "rgba(19, 29, 51, 0.7)", border: "1px solid var(--border-subtle)", borderRadius: "10px", padding: "18px" }}>
+              <div key={idx} style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "10px", padding: "18px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
                   <span style={{ fontSize: "13.5px", fontWeight: "700", color: "var(--police-gold)" }}>
                     Mudamal Article #{idx + 1}: {sz.item_name || "New Item"}
@@ -870,11 +870,11 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
       {/* STEP 5: Review & Submit */}
       {step === 5 && (
         <div className="glass-panel" style={{ padding: "28px" }}>
-          <h2 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "18px", color: "#38bdf8" }}>
+          <h2 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "18px", color: "var(--bordo)" }}>
             Review Unified Case Data Pool & Submit FIR
           </h2>
 
-          <div style={{ background: "rgba(10, 15, 29, 0.7)", borderRadius: "10px", padding: "20px", marginBottom: "24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", fontSize: "13.5px" }}>
+          <div style={{ background: "var(--bg-surface-raised)", border: "1px solid var(--border-subtle)", borderRadius: "10px", padding: "20px", marginBottom: "24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", fontSize: "13.5px" }}>
             <div>
               <span style={{ color: "var(--text-muted)" }}>FIR Number:</span> <strong>{formData.fir_number}</strong>
             </div>

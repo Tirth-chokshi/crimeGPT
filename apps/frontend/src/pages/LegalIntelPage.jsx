@@ -81,31 +81,28 @@ export default function LegalIntelPage({ currentLang, onStartCaseWithNarrative }
   return (
     <div className="content-wrap" style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
       {/* Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "16px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" }}>
-            <div style={{ width: "32px", height: "32px", borderRadius: "6px", background: "rgba(56, 139, 253, 0.12)", border: "1px solid rgba(56, 139, 253, 0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <Scale size={18} color="var(--police-blue)" />
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+            <div style={{ width: "32px", height: "32px", borderRadius: "6px", background: "rgba(108, 21, 30, 0.22)", border: "1px solid rgba(108, 21, 30, 0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <Scale size={18} color="#EFA2A7" />
             </div>
-            <h1 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", margin: 0 }}>
+            <h1 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-heading)", margin: 0 }}>
               Legal Intelligence & Statutory Section Mapping
             </h1>
           </div>
-          <p style={{ color: "var(--text-secondary)", fontSize: "12.5px", margin: 0 }}>
-            Statutory provision mapping and procedure guidelines grounded in BNS, BNSS, BSA 2023.
-          </p>
         </div>
 
         {/* Engine Capabilities Status Pill */}
         {engineStatus && (
           <div className="glass-panel" style={{ padding: "6px 12px", display: "flex", alignItems: "center", gap: "12px", fontSize: "11px", flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2ea043" }}></span>
-              <span style={{ color: "var(--text-primary)", fontWeight: "600" }}>Statutory NLP Matcher (Active)</span>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2C7A74" }}></span>
+              <span style={{ color: "var(--text-primary)", fontWeight: "600" }}>Statutory NLP Matcher</span>
             </div>
             <div style={{ borderLeft: "1px solid var(--border-medium)", paddingLeft: "12px", display: "flex", alignItems: "center", gap: "6px" }}>
-              <Cpu size={13} color={engineStatus.online?.available ? "#2ea043" : "var(--text-muted)"} />
-              <span style={{ color: engineStatus.online?.available ? "#2ea043" : "var(--text-muted)", fontWeight: "600" }}>
+              <Cpu size={13} color={engineStatus.online?.available ? "#2C7A74" : "var(--text-muted)"} />
+              <span style={{ color: engineStatus.online?.available ? "#2C7A74" : "var(--text-muted)", fontWeight: "600" }}>
                 {engineStatus.online?.available ? `Cloud LLM (${engineStatus.online.model.split('/').pop()})` : "Cloud LLM (Offline)"}
               </span>
             </div>
@@ -116,7 +113,7 @@ export default function LegalIntelPage({ currentLang, onStartCaseWithNarrative }
       {/* Engine Mode Selection Bar */}
       <div className="glass-panel" style={{ padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Activity size={15} color="var(--police-blue)" />
+          <Activity size={15} color="#6C151E" />
           <span style={{ fontSize: "12.5px", fontWeight: "600", color: "var(--text-primary)" }}>Execution Mode:</span>
         </div>
 

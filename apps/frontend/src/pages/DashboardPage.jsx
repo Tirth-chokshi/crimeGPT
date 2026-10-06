@@ -55,17 +55,14 @@ export default function DashboardPage({
         }}
       >
         <div>
-          <h1 style={{ fontSize: "20px", fontWeight: "700", letterSpacing: "-0.2px", color: "var(--text-primary)", margin: 0 }}>
+          <h1 style={{ fontSize: "20px", fontWeight: "700", letterSpacing: "-0.2px", color: "var(--text-heading)", margin: 0 }}>
             {t.dashboard.title}
           </h1>
-          <p style={{ color: "var(--text-secondary)", fontSize: "12.5px", margin: "3px 0 0 0" }}>
-            {t.dashboard.subtitle}
-          </p>
         </div>
 
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <button onClick={onOpenLegalIntel} className="btn btn-outline" style={{ padding: "6px 12px", fontSize: "12.5px" }}>
-            <Scale size={14} color="var(--police-blue)" />
+            <Scale size={14} color="#6C151E" />
             {t.dashboard.analyzeCrimeBtn}
           </button>
           <button onClick={onNewCase} className="btn btn-primary" style={{ padding: "6px 14px", fontSize: "12.5px" }}>
@@ -92,27 +89,24 @@ export default function DashboardPage({
               width: "38px",
               height: "38px",
               borderRadius: "6px",
-              background: "rgba(56, 139, 253, 0.12)",
-              border: "1px solid rgba(56, 139, 253, 0.25)",
+              background: "rgba(108, 21, 30, 0.22)",
+              border: "1px solid rgba(108, 21, 30, 0.4)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0
             }}
           >
-            <FileText size={18} color="var(--police-blue)" />
+            <FileText size={18} color="#EFA2A7" />
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: "6px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", fontFamily: "var(--font-mono)" }}>
+              <span style={{ fontSize: "22px", fontWeight: "700", color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
                 {activeCount}
               </span>
               <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-secondary)" }}>
                 {t.dashboard.activeCases}
               </span>
-            </div>
-            <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>
-              Active Case Pool
             </div>
           </div>
         </div>
@@ -132,27 +126,24 @@ export default function DashboardPage({
               width: "38px",
               height: "38px",
               borderRadius: "6px",
-              background: "rgba(248, 81, 73, 0.12)",
-              border: "1px solid rgba(248, 81, 73, 0.25)",
+              background: "rgba(108, 21, 30, 0.22)",
+              border: "1px solid rgba(108, 21, 30, 0.4)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0
             }}
           >
-            <Users size={18} color="var(--police-red)" />
+            <Users size={18} color="#EFA2A7" />
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: "6px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", fontFamily: "var(--font-mono)" }}>
+              <span style={{ fontSize: "22px", fontWeight: "700", color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
                 {inCustodyCount}
               </span>
               <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-secondary)" }}>
                 {t.dashboard.inCustody}
               </span>
-            </div>
-            <div style={{ fontSize: "11px", color: "var(--police-gold)" }}>
-              Sec 187 BNSS 24h Watch
             </div>
           </div>
         </div>
@@ -172,27 +163,24 @@ export default function DashboardPage({
               width: "38px",
               height: "38px",
               borderRadius: "6px",
-              background: "rgba(210, 153, 34, 0.12)",
-              border: "1px solid rgba(210, 153, 34, 0.25)",
+              background: "rgba(201, 138, 44, 0.18)",
+              border: "1px solid rgba(201, 138, 44, 0.35)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0
             }}
           >
-            <Scale size={18} color="var(--police-gold)" />
+            <Scale size={18} color="#E5B061" />
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: "6px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", fontFamily: "var(--font-mono)" }}>
+              <span style={{ fontSize: "22px", fontWeight: "700", color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
                 {pendingChargesheetCount}
               </span>
               <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-secondary)" }}>
                 {t.dashboard.pendingChargesheet}
               </span>
-            </div>
-            <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>
-              Sec 193 (60/90d Limit)
             </div>
           </div>
         </div>
@@ -212,27 +200,24 @@ export default function DashboardPage({
               width: "38px",
               height: "38px",
               borderRadius: "6px",
-              background: "rgba(46, 160, 67, 0.12)",
-              border: "1px solid rgba(46, 160, 67, 0.25)",
+              background: "rgba(15, 61, 58, 0.35)",
+              border: "1px solid rgba(44, 122, 116, 0.5)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0
             }}
           >
-            <Package size={18} color="var(--police-green)" />
+            <Package size={18} color="#58BCB4" />
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: "6px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", fontFamily: "var(--font-mono)" }}>
+              <span style={{ fontSize: "22px", fontWeight: "700", color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
                 {totalSeizuresCount}
               </span>
               <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-secondary)" }}>
                 {t.dashboard.seizuresLogged}
               </span>
-            </div>
-            <div style={{ fontSize: "11px", color: "#3fb950" }}>
-              {hashedSeizuresCount} SHA-256 Verified
             </div>
           </div>
         </div>
@@ -244,19 +229,19 @@ export default function DashboardPage({
         <div className="glass-panel" style={{ padding: "18px", display: "flex", flexDirection: "column", gap: "14px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "6px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <ShieldAlert size={16} color="var(--police-gold)" />
+              <ShieldAlert size={16} color="#C98A2C" />
               <h2 style={{ fontSize: "14px", fontWeight: "700", margin: 0, color: "var(--text-primary)" }}>
                 {t.dashboard.complianceRadarTitle}
               </h2>
             </div>
             <span className="badge badge-gold" style={{ fontSize: "10px" }}>
-              STRICT COMPLIANCE
+              COMPLIANCE RADAR
             </span>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {/* Clock 1: Section 187 Remand */}
-            <div style={{ background: "rgba(248, 81, 73, 0.05)", border: "1px solid rgba(248, 81, 73, 0.2)", borderRadius: "6px", padding: "12px" }}>
+            <div style={{ background: "rgba(108, 21, 30, 0.1)", border: "1px solid rgba(108, 21, 30, 0.35)", borderRadius: "6px", padding: "12px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px", flexWrap: "wrap", gap: "4px" }}>
                 <div style={{ fontWeight: "600", color: "var(--text-primary)", fontSize: "12.5px" }}>
                   Sec 187 BNSS: 24-Hour Magistrate Production Watch
@@ -285,7 +270,7 @@ export default function DashboardPage({
             </div>
 
             {/* Clock 2: Section 193 Default Bail */}
-            <div style={{ background: "rgba(210, 153, 34, 0.05)", border: "1px solid rgba(210, 153, 34, 0.2)", borderRadius: "6px", padding: "12px" }}>
+            <div style={{ background: "rgba(201, 138, 44, 0.08)", border: "1px solid rgba(201, 138, 44, 0.3)", borderRadius: "6px", padding: "12px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px", flexWrap: "wrap", gap: "4px" }}>
                 <div style={{ fontWeight: "600", color: "var(--text-primary)", fontSize: "12.5px" }}>
                   Sec 193(3) BNSS: 60/90-Day Chargesheet Time-Bar
@@ -300,13 +285,13 @@ export default function DashboardPage({
             </div>
 
             {/* Clock 3: Section 105 Videography */}
-            <div style={{ background: "rgba(56, 139, 253, 0.05)", border: "1px solid rgba(56, 139, 253, 0.2)", borderRadius: "6px", padding: "12px" }}>
+            <div style={{ background: "rgba(15, 61, 58, 0.18)", border: "1px solid rgba(44, 122, 116, 0.4)", borderRadius: "6px", padding: "12px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px", flexWrap: "wrap", gap: "4px" }}>
                 <div style={{ fontWeight: "600", color: "var(--text-primary)", fontSize: "12.5px" }}>
                   Sec 105 BNSS &amp; Sec 63 BSA: Mandatory Seizure Videography
                 </div>
-                <span className="badge badge-blue" style={{ fontSize: "9px" }}>
-                  EVIDENTIARY MANDATE
+                <span className="badge badge-green" style={{ fontSize: "9px" }}>
+                  MANDATORY AUDIT
                 </span>
               </div>
               <div style={{ fontSize: "12px", color: "var(--text-secondary)", lineHeight: "1.4" }}>
@@ -321,7 +306,7 @@ export default function DashboardPage({
           {/* Quick Operations Strip */}
           <div className="glass-panel" style={{ padding: "16px" }}>
             <div style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-              <Activity size={14} color="var(--police-blue)" />
+              <Activity size={14} color="#6C151E" />
               {t.dashboard.quickActions || "Quick Station Operations"}
             </div>
 
@@ -331,7 +316,7 @@ export default function DashboardPage({
                 className="btn btn-secondary"
                 style={{ justifyContent: "flex-start", padding: "8px 12px", fontSize: "12px", textAlign: "left" }}
               >
-                <PlusCircle size={14} color="var(--police-blue)" />
+                <PlusCircle size={14} color="#6C151E" />
                 <span>Register New FIR</span>
               </button>
 
@@ -340,7 +325,7 @@ export default function DashboardPage({
                 className="btn btn-secondary"
                 style={{ justifyContent: "flex-start", padding: "8px 12px", fontSize: "12px", textAlign: "left" }}
               >
-                <Scale size={14} color="var(--police-gold)" />
+                <Scale size={14} color="#C98A2C" />
                 <span>BNS Section Mapping</span>
               </button>
             </div>
@@ -350,7 +335,7 @@ export default function DashboardPage({
           <div className="glass-panel" style={{ padding: "16px", flex: 1, display: "flex", flexDirection: "column", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-primary)", display: "flex", alignItems: "center", gap: "6px" }}>
-                <Activity size={14} color="var(--police-blue)" />
+                <Activity size={14} color="#6C151E" />
                 {t.dashboard.recentCases || "Live Investigation Feed"}
               </div>
               <button

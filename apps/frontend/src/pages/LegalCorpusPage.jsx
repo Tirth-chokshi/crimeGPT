@@ -120,7 +120,7 @@ export default function LegalCorpusPage({ currentLang }) {
               <BookOpen size={17} color="var(--police-blue)" />
             </div>
             <div>
-              <h1 style={{ fontSize: "20px", fontWeight: "800", letterSpacing: "-0.4px", color: "#ffffff", margin: 0 }}>
+              <h1 style={{ fontSize: "20px", fontWeight: "800", letterSpacing: "-0.4px", color: "var(--text-heading)", margin: 0 }}>
                 Bharatiya Criminal Law Codex (BNS, BNSS, BSA 2023)
               </h1>
             </div>
@@ -139,7 +139,7 @@ export default function LegalCorpusPage({ currentLang }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="form-control"
-            style={{ paddingLeft: "36px", fontSize: "12px", background: "#0a0f1d" }}
+            style={{ paddingLeft: "36px", fontSize: "12px", background: "var(--bg-input)" }}
           />
         </div>
       </div>
@@ -171,7 +171,7 @@ export default function LegalCorpusPage({ currentLang }) {
               key={cat}
               onClick={() => setCategoryFilter(cat)}
               style={{
-                background: categoryFilter === cat ? "rgba(56, 189, 248, 0.2)" : "#141b2e",
+                background: categoryFilter === cat ? "var(--bordo-soft)" : "var(--bg-surface-raised)",
                 color: categoryFilter === cat ? "var(--police-blue)" : "var(--text-secondary)",
                 border: categoryFilter === cat ? "1px solid var(--police-blue)" : "1px solid var(--border-subtle)",
                 borderRadius: "20px",
@@ -191,14 +191,14 @@ export default function LegalCorpusPage({ currentLang }) {
       {activeTab === "bns" && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))", gap: "12px" }}>
           {filteredBns.map((s, idx) => (
-            <div key={idx} className="glass-panel" style={{ padding: "14px", background: "rgba(14, 18, 28, 0.85)", display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div key={idx} className="glass-panel" style={{ padding: "14px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "4px" }}>
-                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "#38bdf8", fontFamily: "var(--font-mono)" }}>
+                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "var(--bordo)", fontFamily: "var(--font-mono)" }}>
                   BNS Sec {s.section}
                 </span>
                 <span className="badge badge-subtle" style={{ fontSize: "8.5px" }}>{s.chapter}</span>
               </div>
-              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "#f8fafc" }}>{s.title}</div>
+              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "var(--text-heading)" }}>{s.title}</div>
               <div style={{ fontSize: "11px", color: "var(--police-gold)" }}>
                 Concordance: <strong>{s.ipc}</strong>
               </div>
@@ -215,14 +215,14 @@ export default function LegalCorpusPage({ currentLang }) {
       {activeTab === "bnss" && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))", gap: "12px" }}>
           {filteredBnss.map((s, idx) => (
-            <div key={idx} className="glass-panel" style={{ padding: "14px", background: "rgba(14, 18, 28, 0.85)", display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div key={idx} className="glass-panel" style={{ padding: "14px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "4px" }}>
-                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "#fbbf24", fontFamily: "var(--font-mono)" }}>
+                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "var(--police-gold)", fontFamily: "var(--font-mono)" }}>
                   BNSS Sec {s.section}
                 </span>
                 <span className="badge badge-gold" style={{ fontSize: "8.5px" }}>{s.timeline}</span>
               </div>
-              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "#f8fafc" }}>{s.title}</div>
+              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "var(--text-heading)" }}>{s.title}</div>
               <div style={{ fontSize: "11px", color: "var(--police-blue)" }}>
                 Replaces: <strong>{s.crpc}</strong>
               </div>
@@ -235,14 +235,14 @@ export default function LegalCorpusPage({ currentLang }) {
       {activeTab === "bsa" && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))", gap: "12px" }}>
           {filteredBsa.map((s, idx) => (
-            <div key={idx} className="glass-panel" style={{ padding: "14px", background: "rgba(14, 18, 28, 0.85)", display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div key={idx} className="glass-panel" style={{ padding: "14px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "4px" }}>
-                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "#34d399", fontFamily: "var(--font-mono)" }}>
+                <span style={{ fontSize: "13.5px", fontWeight: "800", color: "var(--green-accent)", fontFamily: "var(--font-mono)" }}>
                   BSA Sec {s.section}
                 </span>
                 <span className="badge badge-green" style={{ fontSize: "8.5px" }}>EVIDENTIARY</span>
               </div>
-              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "#f8fafc" }}>{s.title}</div>
+              <div style={{ fontSize: "12.5px", fontWeight: "700", color: "var(--text-heading)" }}>{s.title}</div>
               <div style={{ fontSize: "11px", color: "var(--police-gold)" }}>
                 Replaces: <strong>{s.iea}</strong>
               </div>
@@ -255,9 +255,9 @@ export default function LegalCorpusPage({ currentLang }) {
       {activeTab === "judgments" && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))", gap: "12px" }}>
           {filteredJudgments.map((j, idx) => (
-            <div key={idx} className="glass-panel" style={{ padding: "14px", background: "rgba(14, 18, 28, 0.85)", display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div key={idx} className="glass-panel" style={{ padding: "14px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "4px" }}>
-                <span style={{ fontSize: "13px", fontWeight: "800", color: "#f8fafc" }}>
+                <span style={{ fontSize: "13px", fontWeight: "800", color: "var(--text-heading)" }}>
                   {j.name}
                 </span>
                 <span className="badge badge-blue" style={{ fontSize: "8.5px" }}>{j.citation}</span>

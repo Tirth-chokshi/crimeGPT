@@ -155,8 +155,8 @@ export default function EvidenceVaultPanel({
         className="glass-panel"
         style={{
           padding: "20px 24px",
-          background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.8) 100%)",
-          border: "1px solid rgba(56, 189, 248, 0.3)",
+          background: "var(--bg-surface-raised)",
+          border: "1px solid var(--border-subtle)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -170,18 +170,18 @@ export default function EvidenceVaultPanel({
               width: "44px",
               height: "44px",
               borderRadius: "10px",
-              background: "rgba(56, 189, 248, 0.15)",
-              border: "1px solid rgba(56, 189, 248, 0.35)",
+              background: "var(--bordo-soft)",
+              border: "1px solid var(--border-subtle)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center"
             }}
           >
-            <ShieldCheck size={24} color="#38bdf8" />
+            <ShieldCheck size={24} color="var(--bordo)" />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <h3 style={{ fontSize: "17px", fontWeight: "800", margin: 0, color: "#f8fafc" }}>
+              <h3 style={{ fontSize: "17px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                 BSA Electronic Evidence Vault
               </h3>
               <span className="badge badge-blue" style={{ fontSize: "10px" }}>
@@ -196,17 +196,17 @@ export default function EvidenceVaultPanel({
 
         {/* Quick Vault Metrics */}
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-          <div style={{ background: "rgba(19, 29, 51, 0.8)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+          <div style={{ background: "var(--bg-surface-raised)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
             <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>Total Mudamal</div>
-            <div style={{ fontSize: "16px", fontWeight: "800", color: "#f8fafc" }}>{seizures.length}</div>
+            <div style={{ fontSize: "16px", fontWeight: "800", color: "var(--text-heading)" }}>{seizures.length}</div>
           </div>
-          <div style={{ background: "rgba(19, 29, 51, 0.8)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+          <div style={{ background: "var(--bg-surface-raised)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
             <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>Digital Items</div>
-            <div style={{ fontSize: "16px", fontWeight: "800", color: "#38bdf8" }}>{electronicItemsCount}</div>
+            <div style={{ fontSize: "16px", fontWeight: "800", color: "var(--bordo)" }}>{electronicItemsCount}</div>
           </div>
-          <div style={{ background: "rgba(19, 29, 51, 0.8)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
+          <div style={{ background: "var(--bg-surface-raised)", padding: "8px 14px", borderRadius: "8px", border: "1px solid var(--border-subtle)", textAlign: "center" }}>
             <div style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase" }}>SHA-256 Hashed</div>
-            <div style={{ fontSize: "16px", fontWeight: "800", color: "#34d399" }}>{hashedItemsCount}</div>
+            <div style={{ fontSize: "16px", fontWeight: "800", color: "#0F3D3A" }}>{hashedItemsCount}</div>
           </div>
         </div>
       </div>
@@ -235,8 +235,8 @@ export default function EvidenceVaultPanel({
                 className="glass-panel"
                 style={{
                   padding: "20px",
-                  background: "rgba(19, 29, 51, 0.7)",
-                  border: hasHash ? "1px solid rgba(52, 211, 153, 0.3)" : "1px solid var(--border-subtle)",
+                  background: "var(--bg-surface-raised)",
+                  border: hasHash ? "1px solid rgba(15, 61, 58, 0.35)" : "1px solid var(--border-subtle)",
                   display: "flex",
                   flexDirection: "column",
                   gap: "14px"
@@ -261,7 +261,7 @@ export default function EvidenceVaultPanel({
                     </div>
                     <div>
                       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <span style={{ fontSize: "15px", fontWeight: "800", color: "#f8fafc" }}>
+                        <span style={{ fontSize: "15px", fontWeight: "800", color: "var(--text-heading)" }}>
                           {seizure.item_name}
                         </span>
                         <span className="badge badge-purple" style={{ fontSize: "10px" }}>
@@ -301,8 +301,8 @@ export default function EvidenceVaultPanel({
                 {hasHash ? (
                   <div
                     style={{
-                      background: "rgba(15, 23, 42, 0.7)",
-                      border: "1px solid rgba(52, 211, 153, 0.2)",
+                      background: "var(--bg-inline-card)",
+                      border: "1px solid var(--border-subtle)",
                       borderRadius: "6px",
                       padding: "10px 14px",
                       display: "flex",
@@ -438,16 +438,16 @@ export default function EvidenceVaultPanel({
               maxWidth: "520px",
               width: "90%",
               padding: "24px",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.8)"
+              border: "1px solid var(--border-subtle)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(56, 189, 248, 0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Lock size={16} color="#38bdf8" />
+                <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "var(--bordo-soft)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Lock size={16} color="var(--bordo)" />
                 </div>
-                <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0 }}>
+                <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                   Cryptographic Evidence Hashing
                 </h4>
               </div>
@@ -461,7 +461,7 @@ export default function EvidenceVaultPanel({
             </div>
 
             {/* Option A: Upload file for direct browser/server SHA-256 */}
-            <form onSubmit={handleUploadComputeHash} style={{ marginBottom: "18px", padding: "14px", background: "rgba(19, 29, 51, 0.6)", borderRadius: "8px" }}>
+            <form onSubmit={handleUploadComputeHash} style={{ marginBottom: "18px", padding: "14px", background: "var(--bg-surface-raised)", borderRadius: "8px" }}>
               <label className="form-label" style={{ fontSize: "12px", marginBottom: "6px" }}>
                 Option 1: Upload Evidence File to Compute SHA-256
               </label>
@@ -482,7 +482,7 @@ export default function EvidenceVaultPanel({
             </form>
 
             {/* Option B: Enter manual forensic hash */}
-            <form onSubmit={handleSetManualHash} style={{ padding: "14px", background: "rgba(19, 29, 51, 0.6)", borderRadius: "8px" }}>
+            <form onSubmit={handleSetManualHash} style={{ padding: "14px", background: "var(--bg-surface-raised)", borderRadius: "8px" }}>
               <label className="form-label" style={{ fontSize: "12px", marginBottom: "6px" }}>
                 Option 2: Paste SHA-256 Hash from Cellebrite / EnCase
               </label>
@@ -516,13 +516,13 @@ export default function EvidenceVaultPanel({
               maxWidth: "460px",
               width: "90%",
               padding: "24px",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.8)",
+              border: "1px solid var(--border-subtle)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)",
               textAlign: "center"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-              <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0 }}>
+              <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                 Malkhana Evidence Chain QR Tag
               </h4>
               <button onClick={() => setQrModalSeizure(null)} style={{ background: "none", border: "none", color: "var(--text-muted)", cursor: "pointer" }}>
@@ -538,10 +538,10 @@ export default function EvidenceVaultPanel({
                 borderRadius: "8px",
                 padding: "20px",
                 margin: "0 auto 16px auto",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
               }}
             >
-              <div style={{ fontSize: "13px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "1px", color: "#1e3a5f" }}>
+              <div style={{ fontSize: "13px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "1px", color: "var(--bordo)" }}>
                 POLICE DEPARTMENT — EVIDENCE VAULT
               </div>
               <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "12px" }}>
@@ -595,14 +595,14 @@ export default function EvidenceVaultPanel({
               maxWidth: "540px",
               width: "90%",
               padding: "24px",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.8)"
+              border: "1px solid var(--border-subtle)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <ShieldAlert size={18} color="#38bdf8" />
-                <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0 }}>
+                <ShieldAlert size={18} color="var(--bordo)" />
+                <h4 style={{ fontSize: "15px", fontWeight: "800", margin: 0, color: "var(--text-heading)" }}>
                   Tamper Detection & Integrity Verification
                 </h4>
               </div>
