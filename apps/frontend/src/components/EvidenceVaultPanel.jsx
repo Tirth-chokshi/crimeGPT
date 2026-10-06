@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   ShieldCheck, Lock, Key, FileText, QrCode, Upload, Download,
   CheckCircle2, AlertTriangle, RefreshCw, Copy, ExternalLink, Eye,
-  X, CloudUpload, Search, FileCheck, ShieldAlert, Sparkles, Box
+  X, CloudUpload, Search, FileCheck, ShieldAlert, Box
 } from "lucide-react";
 import { api } from "../api";
 

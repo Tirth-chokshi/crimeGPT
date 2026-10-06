@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Shield, Globe, UserCheck, Clock, Menu, X, PanelLeftClose,
-  PanelLeftOpen, Sparkles, Scale, Radio, KeyRound
+  PanelLeftOpen, Scale, Radio, KeyRound
 } from "lucide-react";
 import { translations } from "../translations";
 import { api } from "../api";
@@ -57,11 +57,11 @@ export default function Navbar({
   const getRoleBadge = () => {
     switch (currentRole) {
       case "SHO":
-        return { label: "SHO Oversight", color: "#fbbf24", bg: "rgba(245, 158, 11, 0.15)", border: "rgba(245, 158, 11, 0.3)" };
+        return { label: "SHO Oversight", color: "#d29922", bg: "rgba(210, 153, 34, 0.12)", border: "#d29922" };
       case "LEGAL_ADVISOR":
-        return { label: "Prosecutor Scrutiny", color: "#a855f7", bg: "rgba(168, 85, 247, 0.15)", border: "rgba(168, 85, 247, 0.3)" };
+        return { label: "Prosecutor Scrutiny", color: "#a371f7", bg: "rgba(163, 113, 247, 0.12)", border: "#a371f7" };
       default:
-        return { label: "IO Field Ops", color: "#38bdf8", bg: "rgba(56, 189, 248, 0.15)", border: "rgba(56, 189, 248, 0.3)" };
+        return { label: "IO Field Ops", color: "#58a6ff", bg: "rgba(56, 139, 253, 0.12)", border: "#388bfd" };
     }
   };
 
@@ -72,18 +72,15 @@ export default function Navbar({
       className="navbar-container"
       style={{
         height: "var(--navbar-height)",
-        background: "rgba(10, 15, 28, 0.96)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid var(--border-subtle)",
+        background: "var(--bg-surface)",
+        borderBottom: "1px solid var(--border-medium)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         padding: "0 18px",
         position: "sticky",
         top: 0,
-        zIndex: 100,
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)"
+        zIndex: 100
       }}
     >
       {/* Left: Hamburger / Collapse + Brand */}
@@ -96,7 +93,7 @@ export default function Navbar({
           id="mobile-nav-toggle"
           title="Toggle Navigation Menu"
         >
-          {isMobileSidebarOpen ? <X size={17} /> : <Menu size={17} />}
+          {isMobileSidebarOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
 
         {/* Desktop Sidebar Collapse Toggle */}
@@ -105,53 +102,52 @@ export default function Navbar({
           className="btn btn-secondary btn-icon"
           title={isSidebarCollapsed ? "Expand Sidebar (Ctrl+B)" : "Collapse Sidebar (Ctrl+B)"}
           style={{
-            background: "#141b2e",
-            border: "1px solid var(--border-subtle)",
+            background: "var(--bg-surface-raised)",
+            border: "1px solid var(--border-medium)",
             color: "var(--text-secondary)",
             width: "30px",
             height: "30px",
             borderRadius: "6px"
           }}
         >
-          {isSidebarCollapsed ? <PanelLeftOpen size={15} color="var(--police-blue)" /> : <PanelLeftClose size={15} />}
+          {isSidebarCollapsed ? <PanelLeftOpen size={14} color="var(--police-blue)" /> : <PanelLeftClose size={14} />}
         </button>
 
         {/* Brand Emblem */}
-        <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <div
             style={{
-              width: "32px",
-              height: "32px",
-              borderRadius: "7px",
-              background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+              width: "30px",
+              height: "30px",
+              borderRadius: "6px",
+              background: "#1f6feb",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 12px rgba(37, 99, 235, 0.4)",
               flexShrink: 0
             }}
           >
-            <Shield size={17} color="#ffffff" />
+            <Shield size={16} color="#ffffff" />
           </div>
 
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <span
                 style={{
-                  fontSize: "15.5px",
-                  fontWeight: "800",
-                  letterSpacing: "-0.3px",
-                  color: "#f8fafc"
+                  fontSize: "15px",
+                  fontWeight: "700",
+                  letterSpacing: "-0.2px",
+                  color: "var(--text-primary)"
                 }}
               >
                 {t.appName}
               </span>
-              <span className="badge badge-blue" style={{ fontSize: "8.5px", padding: "1px 5px" }} id="statutory-badge">
-                BNSS 2023
+              <span className="badge badge-bns" style={{ fontSize: "9px", padding: "1px 5px" }} id="statutory-badge">
+                BNS 2023
               </span>
             </div>
-            <div style={{ fontSize: "10.5px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "5px" }}>
-              <span style={{ maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+            <div style={{ fontSize: "11px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "5px" }}>
+              <span style={{ maxWidth: "220px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                 {policeStation || "Navrangpura PS, Ahmedabad"}
               </span>
               <span>•</span>
@@ -162,23 +158,22 @@ export default function Navbar({
       </div>
 
       {/* Center Live Engine Status & Clock (Desktop) */}
-      <div className="navbar-center-pill" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <div className="navbar-center-pill" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             gap: "6px",
-            background: "rgba(16, 185, 129, 0.1)",
-            border: "1px solid rgba(16, 185, 129, 0.25)",
+            fontSize: "11.5px",
+            color: "var(--text-secondary)",
+            background: "var(--bg-surface-raised)",
+            border: "1px solid var(--border-medium)",
             padding: "3px 10px",
-            borderRadius: "20px",
-            fontSize: "11px",
-            color: "#34d399",
-            fontWeight: "600"
+            borderRadius: "4px"
           }}
         >
-          <span className="pulse-dot" style={{ width: "5px", height: "5px" }}></span>
-          <span>BNS Legal Engine Active</span>
+          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2ea043" }}></span>
+          <span>BNS Corpus Active</span>
         </div>
 
         {/* Active Role Capability Pill */}
@@ -189,11 +184,11 @@ export default function Navbar({
             gap: "5px",
             background: roleMeta.bg,
             border: `1px solid ${roleMeta.border}`,
-            padding: "3px 9px",
-            borderRadius: "6px",
-            fontSize: "10.5px",
+            padding: "3px 8px",
+            borderRadius: "4px",
+            fontSize: "11px",
             color: roleMeta.color,
-            fontWeight: "700"
+            fontWeight: "600"
           }}
           title="RBAC Active Session"
         >
@@ -206,16 +201,16 @@ export default function Navbar({
             display: "flex",
             alignItems: "center",
             gap: "5px",
-            background: "#141b2e",
-            border: "1px solid var(--border-subtle)",
-            padding: "3px 9px",
-            borderRadius: "6px",
+            background: "var(--bg-surface-raised)",
+            border: "1px solid var(--border-medium)",
+            padding: "3px 8px",
+            borderRadius: "4px",
             fontFamily: "var(--font-mono)",
             fontSize: "11px",
             color: "var(--text-secondary)"
           }}
         >
-          <Clock size={11} color="#38bdf8" />
+          <Clock size={11} color="var(--police-blue)" />
           <span>{timeStr}</span>
         </div>
       </div>
@@ -231,16 +226,16 @@ export default function Navbar({
             style={{
               width: "auto",
               padding: "4px 8px",
-              fontSize: "11.5px",
-              background: "#141b2e",
-              borderColor: "var(--border-subtle)",
-              color: "#f8fafc",
+              fontSize: "12px",
+              background: "var(--bg-surface-raised)",
+              borderColor: "var(--border-medium)",
+              color: "var(--text-primary)",
               fontWeight: "600"
             }}
           >
-            <option value="IO">👮 {t.roles.io}</option>
-            <option value="SHO">⭐ {t.roles.sho}</option>
-            <option value="LEGAL_ADVISOR">⚖️ {t.roles.legalAdvisor}</option>
+            <option value="IO">{t.roles.io}</option>
+            <option value="SHO">{t.roles.sho}</option>
+            <option value="LEGAL_ADVISOR">{t.roles.legalAdvisor}</option>
           </select>
         </div>
 
@@ -250,13 +245,13 @@ export default function Navbar({
             display: "flex",
             alignItems: "center",
             gap: "2px",
-            background: "#141b2e",
+            background: "var(--bg-surface-raised)",
             padding: "2px",
-            borderRadius: "6px",
-            border: "1px solid var(--border-subtle)"
+            borderRadius: "4px",
+            border: "1px solid var(--border-medium)"
           }}
         >
-          <Globe size={11} color="#38bdf8" style={{ marginLeft: "4px", marginRight: "2px" }} />
+          <Globe size={11} color="var(--police-blue)" style={{ marginLeft: "4px", marginRight: "2px" }} />
           {[
             { code: "en", label: "EN" },
             { code: "hi", label: "हिन्दी" },
@@ -266,13 +261,13 @@ export default function Navbar({
               key={lang.code}
               onClick={() => setLang(lang.code)}
               style={{
-                background: currentLang === lang.code ? "#2563eb" : "transparent",
+                background: currentLang === lang.code ? "#1f6feb" : "transparent",
                 color: currentLang === lang.code ? "#ffffff" : "var(--text-secondary)",
                 border: "none",
-                borderRadius: "4px",
+                borderRadius: "3px",
                 padding: "2px 6px",
-                fontSize: "10.5px",
-                fontWeight: currentLang === lang.code ? "700" : "500",
+                fontSize: "11px",
+                fontWeight: currentLang === lang.code ? "600" : "400",
                 cursor: "pointer",
                 transition: "all 0.15s ease"
               }}

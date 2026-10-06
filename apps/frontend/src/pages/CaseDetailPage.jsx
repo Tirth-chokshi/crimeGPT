@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { 
-  ArrowLeft, FileText, Download, Printer, Plus, Sparkles, Scale, Clock, 
+  ArrowLeft, FileText, Download, Printer, Plus, Scale, Clock, 
   ShieldCheck, AlertTriangle, CheckCircle2, ChevronRight, RefreshCw, 
   Eye, BookOpen, Layers, History, Package, UserCheck, ShieldAlert,
   MessageSquare, ExternalLink, Code
@@ -279,9 +279,9 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
             </div>
 
             <div style={{ fontSize: "12px", color: "var(--text-secondary)", display: "flex", gap: "14px", flexWrap: "wrap" }}>
-              <span>📅 FIR Date: <strong>{new Date(caseData.fir_date || caseData.created_at).toLocaleDateString()}</strong></span>
-              <span>📍 Location: <strong>{caseData.incident_place}</strong></span>
-              <span>👮 IO: <strong>{caseData.investigating_officer_name} ({caseData.investigating_officer_badge})</strong></span>
+              <span>FIR Date: <strong>{new Date(caseData.fir_date || caseData.created_at).toLocaleDateString()}</strong></span>
+              <span>Location: <strong>{caseData.incident_place}</strong></span>
+              <span>IO: <strong>{caseData.investigating_officer_name} ({caseData.investigating_officer_badge})</strong></span>
             </div>
           </div>
 
@@ -306,15 +306,15 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
       {/* Tabs Navigation */}
       <div style={{ display: "flex", gap: "6px", borderBottom: "1px solid var(--border-subtle)", paddingBottom: "8px", overflowX: "auto" }}>
         {[
-          { id: "documents", label: "📑 " + (t.caseDetail.tabs.documents || "Official Documents") },
-          { id: "compliance", label: "⏱️ Compliance Clocks" },
-          { id: "diary", label: "📓 " + (t.caseDetail.tabs.diary || "Case Diary (Sec 187)") },
-          { id: "evidence", label: "🔐 Evidence Vault (BSA Sec 63)" },
-          { id: "cctns", label: "🌐 CCTNS & BharatPol Sync" },
-          { id: "legalIntel", label: "⚖️ " + (t.caseDetail.tabs.legalIntel || "Legal Intelligence") },
-          { id: "overview", label: "📋 " + (t.caseDetail.tabs.overview || "Overview") },
-          { id: "seizures", label: "📦 " + (t.caseDetail.tabs.seizures || "Seizures / Mudamal") },
-          { id: "audit", label: "🛡️ " + (t.caseDetail.tabs.audit || "Audit Log") }
+          { id: "documents", label: t.caseDetail.tabs.documents || "Official Documents" },
+          { id: "compliance", label: "Compliance Clocks" },
+          { id: "diary", label: t.caseDetail.tabs.diary || "Case Diary (Sec 187)" },
+          { id: "evidence", label: "Evidence Vault (BSA Sec 63)" },
+          { id: "cctns", label: "CCTNS & BharatPol Sync" },
+          { id: "legalIntel", label: t.caseDetail.tabs.legalIntel || "Legal Intelligence" },
+          { id: "overview", label: t.caseDetail.tabs.overview || "Overview" },
+          { id: "seizures", label: t.caseDetail.tabs.seizures || "Seizures / Mudamal" },
+          { id: "audit", label: t.caseDetail.tabs.audit || "Audit Log" }
         ].map((tab) => (
           <button
             key={tab.id}
@@ -386,7 +386,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                         className="btn btn-primary"
                         style={{ padding: "4px 8px", fontSize: "11px", flex: 1 }}
                       >
-                        <Sparkles size={12} /> {existing ? "Regenerate" : "Generate"}
+                        <FileText size={12} /> {existing ? "Regenerate" : "Generate"}
                       </button>
 
                       <button
@@ -643,11 +643,11 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
           {legalIntel ? (
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {/* Summary Analysis */}
-              <div className="glass-panel" style={{ padding: "18px", background: "linear-gradient(90deg, rgba(56, 189, 248, 0.1) 0%, rgba(245, 158, 11, 0.08) 100%)" }}>
+              <div className="glass-panel" style={{ padding: "18px", border: "1px solid var(--border-gold)", background: "rgba(10, 20, 40, 0.85)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
-                  <Sparkles size={16} color="var(--police-gold)" />
+                  <Scale size={16} color="var(--police-gold)" />
                   <h3 style={{ fontSize: "15px", fontWeight: "700", color: "#fbbf24", margin: 0 }}>
-                    AI Incident Intelligence Analysis
+                    Incident Legal Analysis & Statutory Mapping
                   </h3>
                 </div>
                 <p style={{ fontSize: "13px", color: "var(--text-primary)", lineHeight: "1.5", margin: 0 }}>
@@ -969,7 +969,7 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                     className="btn btn-primary"
                     style={{ fontSize: "12px" }}
                   >
-                    {copiedLers ? "✓ Copied!" : "Copy WhatsApp Message"}
+                    {copiedLers ? "Copied to Clipboard" : "Copy WhatsApp Message"}
                   </button>
                 </div>
               </div>
@@ -1000,13 +1000,13 @@ export default function CaseDetailPage({ caseId, onBack, currentLang, currentRol
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                     <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#f8fafc" }}>{bharatpolModal.data?.query_name}</span>
                     <span className={`badge ${bharatpolModal.data?.history_sheeter ? 'badge-red' : 'badge-green'}`}>
-                      {bharatpolModal.data?.history_sheeter ? "⚠️ HISTORY SHEETER" : "✓ CLEAN RECORD"}
+                      {bharatpolModal.data?.history_sheeter ? "HISTORY SHEETER" : "CLEAN RECORD"}
                     </span>
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", fontSize: "11px" }}>
                     <div><b>NCRB ID:</b> <code style={{ color: "var(--police-blue)" }}>{bharatpolModal.data?.ncrb_crd_id || "NOT_LISTED"}</code></div>
-                    <div><b>Warrants:</b> {bharatpolModal.data?.open_warrant ? "🚨 Active" : "None"}</div>
+                    <div><b>Warrants:</b> {bharatpolModal.data?.open_warrant ? "Active" : "None"}</div>
                     <div><b>Interstate:</b> {bharatpolModal.data?.interstate_crime_links ? "Yes" : "No"}</div>
                     <div><b>Priors:</b> {bharatpolModal.data?.prior_firs_count || 0} FIRs</div>
                   </div>

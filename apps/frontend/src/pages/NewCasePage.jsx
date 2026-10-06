@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { 
-  Sparkles, CheckCircle2, UserPlus, PackagePlus, ArrowRight, ArrowLeft, 
+  CheckCircle2, UserPlus, PackagePlus, ArrowRight, ArrowLeft, 
   ShieldCheck, AlertCircle, Trash2, Plus, Scale, BookOpen, Mic, FileSearch 
 } from "lucide-react";
 import { api } from "../api";
@@ -444,9 +444,9 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                       className="form-control"
                       style={{ width: "auto", padding: "4px 10px", fontSize: "12px", fontWeight: "700" }}
                     >
-                      <option value="VICTIM">👤 COMPLAINANT / VICTIM</option>
-                      <option value="ACCUSED">🚨 ACCUSED / SUSPECT</option>
-                      <option value="WITNESS">👁️ EYE WITNESS</option>
+                      <option value="VICTIM">COMPLAINANT / VICTIM</option>
+                      <option value="ACCUSED">ACCUSED / SUSPECT</option>
+                      <option value="WITNESS">EYE WITNESS</option>
                     </select>
                     <span style={{ fontSize: "13px", fontWeight: "700" }}>#{idx + 1}: {p.name || "Untitled"}</span>
                   </div>
@@ -603,7 +603,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   className="btn btn-secondary"
                   style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "var(--police-gold)", borderColor: "rgba(245, 158, 11, 0.4)" }}
                 >
-                  <Mic size={14} /> 🎙️ Record Voice Statement
+                  <Mic size={14} /> Record Voice Statement
                 </button>
                 <button
                   type="button"
@@ -611,7 +611,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   className="btn btn-secondary"
                   style={{ fontSize: "12px", padding: "6px 12px", display: "flex", alignItems: "center", gap: "6px", color: "#38bdf8", borderColor: "rgba(56, 189, 248, 0.4)" }}
                 >
-                  <FileSearch size={14} /> 📄 Scan Paper Complaint (OCR)
+                  <FileSearch size={14} /> Scan Paper Complaint (OCR)
                 </button>
               </div>
             </div>
@@ -634,7 +634,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   className="btn btn-secondary"
                   style={{ fontSize: "11.5px", padding: "4px 8px" }}
                 >
-                  🔪 Armed Snatching (BNS 309/304)
+                  Armed Snatching (BNS 309/304)
                 </button>
                 <button
                   type="button"
@@ -642,7 +642,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                   className="btn btn-secondary"
                   style={{ fontSize: "11.5px", padding: "4px 8px" }}
                 >
-                  💻 Cyber Fraud (BNS 318/336)
+                  Cyber Fraud (BNS 318/336)
                 </button>
                 <button
                   type="button"
@@ -660,7 +660,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
                 disabled={isAnalyzing}
                 className="btn btn-cyan"
               >
-                <Sparkles size={16} />
+                <Scale size={16} />
                 {isAnalyzing ? t.caseForm.analyzing : t.caseForm.analyzeBtn}
               </button>
             </div>
@@ -671,7 +671,7 @@ export default function NewCasePage({ onCaseCreated, onCancel, currentLang }) {
             <div style={{ background: "rgba(10, 20, 40, 0.85)", border: "1px solid var(--border-gold)", borderRadius: "12px", padding: "20px", marginBottom: "20px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <Sparkles size={18} color="var(--police-gold)" />
+                  <Scale size={18} color="var(--police-gold)" />
                   <span style={{ fontSize: "15px", fontWeight: "800", color: "#fbbf24" }}>
                     CrimeGPT Legal Recommendations
                   </span>

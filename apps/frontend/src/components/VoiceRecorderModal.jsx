@@ -326,10 +326,10 @@ export default function VoiceRecorderModal({ isOpen, onClose, onApplyTranscript,
                 color: isRecording ? "#ef4444" : "#38bdf8"
               }}
             >
-              {isRecording ? "🔴 Listening... Speak clearly into microphone" : "Click Microphone to Start Speaking"}
+              {isRecording ? "Recording in progress — speak clearly" : "Click Microphone to Start Speaking"}
             </span>
             <span style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "4px" }}>
-              {webSpeechSupported ? "⚡ Powered by Native Indian ASR Engine" : "Backend Audio Streaming Mode"}
+              {webSpeechSupported ? "Speech Recognition Engine Active" : "Backend Audio Streaming Mode"}
             </span>
           </div>
 

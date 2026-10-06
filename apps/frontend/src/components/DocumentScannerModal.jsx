@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FileText, Upload, Check, X, AlertCircle, Eye, RefreshCw, FileSearch, Sparkles } from "lucide-react";
+import { FileText, Upload, Check, X, AlertCircle, Eye, RefreshCw, FileSearch } from "lucide-react";
 import { api } from "../api";
 
 export default function DocumentScannerModal({ isOpen, onClose, onApplyExtractedData }) {
@@ -255,7 +255,7 @@ export default function DocumentScannerModal({ isOpen, onClose, onApplyExtracted
                   <>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <span style={{ fontSize: "13px", fontWeight: "700", color: "#34d399", display: "flex", alignItems: "center", gap: "6px" }}>
-                        <Sparkles size={15} /> Extracted Document Text & Fields
+                        <FileSearch size={15} /> Extracted Document Text & Fields
                       </span>
                       <span className="badge badge-green" style={{ fontSize: "10px" }}>
                         OCR Parsed

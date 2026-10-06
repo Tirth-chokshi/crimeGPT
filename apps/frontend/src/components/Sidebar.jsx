@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  LayoutDashboard, FilePlus2, FolderSearch, BrainCircuit, BookOpen,
-  Search, ShieldAlert, ChevronLeft, ChevronRight, Sparkles, Shield
+  LayoutDashboard, FilePlus2, FolderSearch, Scale, BookOpen,
+  Search, ShieldAlert, ChevronLeft, Shield
 } from "lucide-react";
 import { translations } from "../translations";
 
@@ -20,7 +20,7 @@ export default function Sidebar({
   const navItems = [
     { id: "dashboard", label: t.nav.dashboard, icon: LayoutDashboard },
     { id: "cases", label: t.nav.cases, icon: FolderSearch, count: activeCaseCount },
-    { id: "legal-intel", label: t.nav.legalIntel, icon: BrainCircuit, badge: "AI" },
+    { id: "legal-intel", label: t.nav.legalIntel, icon: Scale },
     { id: "legal-corpus", label: t.nav.legalCorpus, icon: BookOpen },
     { id: "search", label: t.nav.search, icon: Search },
     { id: "audit", label: t.nav.auditLogs, icon: ShieldAlert }
@@ -48,11 +48,9 @@ export default function Sidebar({
         style={{
           width: isCollapsed ? "var(--sidebar-collapsed-width)" : "var(--sidebar-expanded-width)",
           minWidth: isCollapsed ? "var(--sidebar-collapsed-width)" : "var(--sidebar-expanded-width)",
-          background: "rgba(10, 15, 28, 0.96)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          borderRight: "1px solid var(--border-subtle)",
-          padding: isCollapsed ? "14px 6px" : "16px 12px",
+          background: "var(--bg-surface)",
+          borderRight: "1px solid var(--border-medium)",
+          padding: isCollapsed ? "14px 6px" : "14px 10px",
           display: "flex",
           flexDirection: "column",
           gap: "4px",
@@ -61,7 +59,7 @@ export default function Sidebar({
           top: "var(--navbar-height)",
           overflowY: "auto",
           overflowX: "hidden",
-          transition: "width 0.24s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.24s cubic-bezier(0.4, 0, 0.2, 1), padding 0.24s ease",
+          transition: "width 0.2s ease, min-width 0.2s ease",
           zIndex: 99
         }}
       >
@@ -71,14 +69,14 @@ export default function Sidebar({
             display: "flex",
             alignItems: "center",
             justifyContent: isCollapsed ? "center" : "space-between",
-            padding: isCollapsed ? "4px 0 8px" : "0 4px 10px",
+            padding: isCollapsed ? "4px 0 8px" : "0 4px 8px",
             borderBottom: "1px solid var(--border-subtle)",
-            marginBottom: "8px"
+            marginBottom: "6px"
           }}
         >
           {!isCollapsed ? (
-            <div style={{ fontSize: "10px", fontWeight: "800", color: "var(--text-muted)", letterSpacing: "0.8px", textTransform: "uppercase" }}>
-              COMMAND CONSOLE
+            <div style={{ fontSize: "10px", fontWeight: "700", color: "var(--text-muted)", letterSpacing: "0.5px", textTransform: "uppercase" }}>
+              Station Modules
             </div>
           ) : (
             <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--police-blue)" }} />
@@ -89,35 +87,35 @@ export default function Sidebar({
               onClick={() => setIsCollapsed(!isCollapsed)}
               className="btn btn-secondary btn-icon"
               style={{
-                width: "24px",
-                height: "24px",
-                borderRadius: "5px",
-                background: "#141b2e",
-                border: "1px solid var(--border-subtle)",
+                width: "22px",
+                height: "22px",
+                borderRadius: "4px",
+                background: "var(--bg-surface-raised)",
+                border: "1px solid var(--border-medium)",
                 display: isCollapsed ? "none" : "inline-flex"
               }}
               title={isCollapsed ? "Expand" : "Collapse"}
             >
-              <ChevronLeft size={13} color="var(--text-secondary)" />
+              <ChevronLeft size={12} color="var(--text-secondary)" />
             </button>
           )}
         </div>
 
         {/* Primary Action Button: New FIR */}
-        <div style={{ marginBottom: "10px" }}>
+        <div style={{ marginBottom: "8px" }}>
           <button
             onClick={() => handleNavClick("new-case")}
             className="btn btn-primary"
             style={{
               width: "100%",
-              padding: isCollapsed ? "10px 0" : "9px 12px",
+              padding: isCollapsed ? "8px 0" : "8px 10px",
               justifyContent: isCollapsed ? "center" : "flex-start",
               fontSize: "12.5px",
-              fontWeight: "700"
+              fontWeight: "600"
             }}
             title={isCollapsed ? t.nav.newCase : undefined}
           >
-            <FilePlus2 size={16} />
+            <FilePlus2 size={15} />
             {!isCollapsed && <span>{t.nav.newCase}</span>}
           </button>
         </div>
@@ -136,36 +134,30 @@ export default function Sidebar({
                 display: "flex",
                 alignItems: "center",
                 justifyContent: isCollapsed ? "center" : "space-between",
-                padding: isCollapsed ? "10px 0" : "8px 10px",
-                borderRadius: "7px",
-                background: isActive
-                  ? "linear-gradient(90deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0.05) 100%)"
-                  : "transparent",
-                color: isActive ? "#ffffff" : "var(--text-secondary)",
-                border: isActive
-                  ? "1px solid rgba(56, 189, 248, 0.35)"
-                  : "1px solid transparent",
+                padding: isCollapsed ? "9px 0" : "8px 10px",
+                borderRadius: "5px",
+                background: isActive ? "var(--bg-surface-raised)" : "transparent",
+                color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
+                border: isActive ? "1px solid var(--border-medium)" : "1px solid transparent",
                 cursor: "pointer",
                 textAlign: "left",
                 fontFamily: "var(--font-sans)",
                 fontSize: "12.5px",
-                fontWeight: isActive ? "700" : "500",
-                transition: "all 0.15s ease",
-                boxShadow: isActive ? "0 2px 10px rgba(37, 99, 235, 0.2)" : "none"
+                fontWeight: isActive ? "600" : "400",
+                transition: "all 0.12s ease"
               }}
             >
-              {/* Active Indicator Bar */}
+              {/* Clean Active Left Bar */}
               {isActive && (
                 <div
                   style={{
                     position: "absolute",
-                    left: "2px",
-                    top: "5px",
-                    bottom: "5px",
+                    left: 0,
+                    top: "4px",
+                    bottom: "4px",
                     width: "3px",
-                    borderRadius: "3px",
-                    background: "var(--police-blue)",
-                    boxShadow: "0 0 8px var(--police-blue)"
+                    borderRadius: "0 2px 2px 0",
+                    background: "var(--police-blue)"
                   }}
                 />
               )}
@@ -178,19 +170,10 @@ export default function Sidebar({
                 {!isCollapsed && <span style={{ whiteSpace: "nowrap" }}>{item.label}</span>}
               </div>
 
-              {!isCollapsed && (
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  {item.count !== undefined && item.count > 0 && (
-                    <span className="badge badge-subtle" style={{ fontSize: "9px", padding: "1px 5px" }}>
-                      {item.count}
-                    </span>
-                  )}
-                  {item.badge && (
-                    <span className="badge badge-purple" style={{ fontSize: "8px", padding: "1px 4px" }}>
-                      {item.badge}
-                    </span>
-                  )}
-                </div>
+              {!isCollapsed && item.count !== undefined && item.count > 0 && (
+                <span className="badge badge-subtle" style={{ fontSize: "10px", padding: "1px 5px" }}>
+                  {item.count}
+                </span>
               )}
 
               {/* Compact Notification Dot on Collapsed */}
@@ -200,11 +183,10 @@ export default function Sidebar({
                     position: "absolute",
                     top: "6px",
                     right: "10px",
-                    width: "6px",
-                    height: "6px",
+                    width: "5px",
+                    height: "5px",
                     borderRadius: "50%",
-                    background: "var(--police-blue)",
-                    boxShadow: "0 0 6px var(--police-blue)"
+                    background: "var(--police-blue)"
                   }}
                 />
               )}
@@ -214,28 +196,25 @@ export default function Sidebar({
 
         {/* Statutory Reference Footer */}
         {!isCollapsed && (
-          <div style={{ marginTop: "auto", paddingTop: "12px", borderTop: "1px solid var(--border-subtle)" }}>
+          <div style={{ marginTop: "auto", paddingTop: "10px", borderTop: "1px solid var(--border-subtle)" }}>
             <div
-              className="glass-panel"
               style={{
-                padding: "10px 12px",
-                background: "rgba(14, 20, 36, 0.7)",
-                border: "1px solid rgba(56, 189, 248, 0.2)"
+                padding: "8px 10px",
+                background: "var(--bg-surface-raised)",
+                border: "1px solid var(--border-subtle)",
+                borderRadius: "6px"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "10.5px", fontWeight: "700", color: "var(--police-blue)", marginBottom: "3px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", color: "var(--text-primary)", marginBottom: "3px" }}>
                 <Shield size={12} color="var(--police-blue)" /> BNSS 2023 Rules
               </div>
-              <div style={{ fontSize: "10.5px", color: "var(--text-muted)", lineHeight: "1.35" }}>
-                Auto-enforcing 24h remand (Sec 187), Sec 105 videography & Sec 63 BSA certificates.
+              <div style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: "1.4" }}>
+                Enforcing 24h remand (Sec 187), Sec 105 videography & Sec 63 BSA evidence seals.
               </div>
             </div>
           </div>
         )}
-
-
       </aside>
     </>
   );
 }
-

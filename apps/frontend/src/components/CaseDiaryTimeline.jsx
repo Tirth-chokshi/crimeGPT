@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   BookOpen, Plus, FileDown, Calendar, MapPin, User, Shield,
-  CheckCircle2, Clock, Search, AlertCircle, FileText, X
+  CheckCircle2, Clock, Search, AlertCircle, FileText, X, Scale
 } from "lucide-react";
 import { api } from "../api";
 
@@ -27,30 +27,27 @@ export default function CaseDiaryTimeline({
   });
 
   const stepTypes = [
-    { value: "CRIME_SCENE_VISIT", label: "🔍 Crime Scene Inspection", icon: "🔍", statutory: "Sec 105 BNSS (Videography)" },
-    { value: "WITNESS_EXAMINATION", label: "👤 Witness Statement (Sec 180)", icon: "👤", statutory: "Sec 180 BNSS" },
-    { value: "SEIZURE", label: "🔒 Mudamal Seizure / Panchanama", icon: "🔒", statutory: "Sec 105 BNSS & Sec 23 BSA" },
-    { value: "ARREST", label: "🚔 Accused Apprehension / Arrest", icon: "🚔", statutory: "Sec 35 & 187 BNSS" },
-    { value: "MEDICAL_EXAM", label: "🏥 Medico-Legal Examination (MLC)", icon: "🏥", statutory: "Sec 53 BNSS" },
-    { value: "REMAND_PRODUCED", label: "⚖️ Remand Production before Magistrate", icon: "⚖️", statutory: "Sec 187(1) BNSS (24h limit)" },
-    { value: "CUSTODY_EXTENDED", label: "🔗 Custody Extension / Jail Transit", icon: "🔗", statutory: "Sec 187(2) BNSS (15d cap)" },
-    { value: "FORENSIC_DISPATCH", label: "🧪 FSL / Cyber Forensic Dispatch", icon: "🧪", statutory: "Sec 63 BSA Hash Cert" },
-    { value: "CHARGESHEET", label: "📄 Chargesheet / Police Report Filing", icon: "📄", statutory: "Sec 193 BNSS" }
+    { value: "CRIME_SCENE_VISIT", label: "Crime Scene Inspection", statutory: "Sec 105 BNSS (Videography)" },
+    { value: "WITNESS_EXAMINATION", label: "Witness Statement (Sec 180)", statutory: "Sec 180 BNSS" },
+    { value: "SEIZURE", label: "Mudamal Seizure / Panchanama", statutory: "Sec 105 BNSS & Sec 23 BSA" },
+    { value: "ARREST", label: "Accused Apprehension / Arrest", statutory: "Sec 35 & 187 BNSS" },
+    { value: "MEDICAL_EXAM", label: "Medico-Legal Examination (MLC)", statutory: "Sec 53 BNSS" },
+    { value: "REMAND_PRODUCED", label: "Remand Production before Magistrate", statutory: "Sec 187(1) BNSS (24h limit)" },
+    { value: "CUSTODY_EXTENDED", label: "Custody Extension / Jail Transit", statutory: "Sec 187(2) BNSS (15d cap)" },
+    { value: "FORENSIC_DISPATCH", label: "FSL / Cyber Forensic Dispatch", statutory: "Sec 63 BSA Hash Cert" },
+    { value: "CHARGESHEET", label: "Chargesheet / Police Report Filing", statutory: "Sec 193 BNSS" }
   ];
 
-  const getStepIcon = (type) => {
+  const renderStepIcon = (type) => {
     switch (type) {
-      case "FIR": return "📋";
-      case "CRIME_SCENE_VISIT": return "🔍";
-      case "WITNESS_EXAMINATION": return "👤";
-      case "SEIZURE": return "🔒";
-      case "ARREST": return "🚔";
-      case "MEDICAL_EXAM": return "🏥";
-      case "REMAND_PRODUCED": return "⚖️";
-      case "CUSTODY_EXTENDED": return "🔗";
-      case "FORENSIC_DISPATCH": return "🧪";
-      case "CHARGESHEET": return "📄";
-      default: return "📌";
+      case "CRIME_SCENE_VISIT": return <Search size={14} color="#38bdf8" />;
+      case "WITNESS_EXAMINATION": return <User size={14} color="#38bdf8" />;
+      case "SEIZURE": return <Shield size={14} color="#fbbf24" />;
+      case "ARREST": return <AlertCircle size={14} color="#f87171" />;
+      case "MEDICAL_EXAM": return <CheckCircle2 size={14} color="#34d399" />;
+      case "REMAND_PRODUCED": return <Scale size={14} color="#a78bfa" />;
+      case "CHARGESHEET": return <FileText size={14} color="#34d399" />;
+      default: return <BookOpen size={14} color="#94a3b8" />;
     }
   };
 
@@ -208,7 +205,6 @@ export default function CaseDiaryTimeline({
 
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {events.map((ev, index) => {
-              const icon = getStepIcon(ev.step_type);
               const badgeClass = getStepBadgeColor(ev.step_type);
               const dateStr = ev.event_timestamp
                 ? new Date(ev.event_timestamp).toLocaleString("en-IN", {
@@ -233,16 +229,14 @@ export default function CaseDiaryTimeline({
                       height: "30px",
                       borderRadius: "50%",
                       background: "#0f172a",
-                      border: "2px solid #38bdf8",
+                      border: "1px solid var(--border-subtle)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "14px",
-                      boxShadow: "0 0 10px rgba(56, 189, 248, 0.4)",
                       zIndex: 2
                     }}
                   >
-                    {icon}
+                    {renderStepIcon(ev.step_type)}
                   </div>
 
                   {/* Card Body */}
@@ -286,7 +280,7 @@ export default function CaseDiaryTimeline({
                                 border: "1px solid rgba(56, 189, 248, 0.25)"
                               }}
                             >
-                              ⚖️ {ev.statutory_deadline_reference}
+                              {ev.statutory_deadline_reference}
                             </span>
                           )}
                         </div>

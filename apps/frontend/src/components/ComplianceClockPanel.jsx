@@ -96,9 +96,8 @@ export default function ComplianceClockPanel({
         className="glass-panel"
         style={{
           padding: "18px 24px",
-          background:
-            "linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%)",
-          border: "1px solid rgba(56, 189, 248, 0.25)",
+          background: "#161b22",
+          border: "1px solid var(--border-subtle)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -225,7 +224,7 @@ export default function ComplianceClockPanel({
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
                     <span style={{ fontSize: "12px", fontWeight: "700", color: "var(--police-gold)" }}>
-                      📋 Police Report / Chargesheet Deadline (Sec 193 BNSS)
+                      Police Report / Chargesheet Deadline (Sec 193 BNSS)
                     </span>
                     <span className={`badge ${getStatusBadge(clocks[0].chargesheet_clock.status).className}`}>
                       {clocks[0].chargesheet_clock.status}
@@ -341,7 +340,7 @@ export default function ComplianceClockPanel({
                       <div style={{ margin: "10px 0" }}>
                         {prod24h.complied ? (
                           <div style={{ fontSize: "20px", fontWeight: "800", color: "#34d399" }}>
-                            COMPLIED ✅
+                            COMPLIED
                           </div>
                         ) : (
                           <div style={{ fontSize: "22px", fontWeight: "900", color: prod24h.hours_remaining < 2 ? "#ef4444" : "#f59e0b" }}>

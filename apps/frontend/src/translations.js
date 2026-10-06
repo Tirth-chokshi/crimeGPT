@@ -1,12 +1,12 @@
 export const translations = {
   en: {
     appName: "CrimeGPT",
-    appTagline: "AI Automation for Crime Documentation & BNSS/BNS Intelligence",
+    appTagline: "Police Documentation & BNSS/BNS Legal Intelligence",
     nav: {
-      dashboard: "Command Dashboard",
+      dashboard: "Station Dashboard",
       newCase: "New FIR / Case",
       cases: "Case Explorer",
-      legalIntel: "Legal Intelligence AI",
+      legalIntel: "Legal Intelligence",
       legalCorpus: "BNS/BNSS Bare Acts",
       search: "Global Search",
       auditLogs: "Audit Trail"
@@ -17,22 +17,22 @@ export const translations = {
       legalAdvisor: "Legal Advisor / Prosecutor"
     },
     dashboard: {
-      title: "Police Station Command Center",
-      subtitle: "Live BNSS statutory compliance radar, FIR lifecycle intelligence, and station readiness.",
+      title: "Police Station Overview",
+      subtitle: "Live BNSS statutory compliance tracking, FIR lifecycle intelligence, and custody limits.",
       activeCases: "Active Cases",
       inCustody: "Accused in Custody",
       pendingChargesheet: "Pending Chargesheets",
       seizuresLogged: "Seizures & Mudamal",
-      statutoryDeadlines: "BNSS Statutory Clocks & Compliance Radar",
+      statutoryDeadlines: "BNSS Statutory Deadlines & Clocks",
       quickActions: "Quick Operations",
       recentCases: "Live Investigation Feed",
       viewAll: "Open Case Explorer",
       newFirBtn: "Register New FIR",
-      analyzeCrimeBtn: "Analyze Crime Narrative",
+      analyzeCrimeBtn: "Statutory Section Mapping",
       caseSearchPlaceholder: "Search FIR No, Complainant, Accused, Section...",
       filterStatus: "Filter by Status",
       allStatuses: "All Statuses",
-      complianceRadarTitle: "Statutory Time-Bar Radar (BNSS 2023)",
+      complianceRadarTitle: "Statutory Time-Bar Limits (BNSS 2023)",
       activityStreamTitle: "Station Investigation Activity Stream",
       malkhanaSummaryTitle: "Malkhana Evidence Vault Status"
     },
@@ -97,7 +97,7 @@ export const translations = {
       marks: "Physical Identification Marks / Scars",
       incidentNarrativeLabel: "Incident Facts & FIR Narrative (English / Hindi / Gujarati)",
       narrativePlaceholder: "Describe the incident facts, weapons used, stolen property, date/time, victim injuries, vehicle numbers, etc. CrimeGPT AI will automatically analyze and map applicable BNS/BNSS/BSA sections...",
-      analyzeBtn: "🧠 Run AI Legal Analysis",
+      analyzeBtn: "Run Statutory Legal Analysis",
       analyzing: "Analyzing with Legal Intelligence Engine...",
       addItem: "Add Seized Item",
       itemName: "Item / Property Name",
@@ -113,13 +113,13 @@ export const translations = {
     },
     caseDetail: {
       tabs: {
-        overview: "📌 Unified Data Pool",
-        diary: "⏱️ Case Diary & BNSS Timeline",
-        legalIntel: "🧠 Legal Intelligence & Precedents",
-        documents: "📄 Document Generation Center (7)",
-        seizures: "📦 Mudamal Vault",
-        sync: "🌐 CCTNS & Interoperability",
-        audit: "🛡️ Audit & Version History"
+        overview: "Unified Case Pool",
+        diary: "Case Diary & BNSS Timeline",
+        legalIntel: "Legal Intelligence & Precedents",
+        documents: "Official Documents Center (7)",
+        seizures: "Malkhana & Evidence Vault",
+        sync: "CCTNS & National Systems",
+        audit: "Audit & Version History"
       },
       generateDocBtn: "Generate Legal Document",
       downloadDocx: "Download DOCX",
@@ -249,7 +249,7 @@ export const translations = {
       marks: "शारीरिक पहचान चिन्ह / घाव",
       incidentNarrativeLabel: "घटना के तथ्य और FIR विवरण (हिंदी / गुजराती / अंग्रेजी)",
       narrativePlaceholder: "घटना के तथ्य, इस्तेमाल किए गए हथियार, चोरी की संपत्ति, चोटें आदि विस्तार से लिखें। CrimeGPT AI अपने आप लागू होने वाली BNS/BNSS धाराओं का सुझाव देगा...",
-      analyzeBtn: "🧠 AI कानूनी विश्लेषण चलाएं",
+      analyzeBtn: "कानूनी विश्लेषण चलाएं",
       analyzing: "कानूनी विश्लेषण जारी है...",
       addItem: "जब्त वस्तु जोड़ें",
       itemName: "वस्तु / संपत्ति का नाम",
@@ -265,13 +265,13 @@ export const translations = {
     },
     caseDetail: {
       tabs: {
-        overview: "📌 एकीकृत डेटा पूल",
-        diary: "⏱️ केस डायरी और BNSS समयरेखा",
-        legalIntel: "🧠 कानूनी बुद्धिमत्ता और नज़ीरें",
-        documents: "📄 दस्तावेज़ निर्माण केंद्र (7)",
-        seizures: "📦 मुद्दामल वॉल्ट",
-        sync: "🌐 CCTNS एवं अंतर-प्रणाली समन्वय",
-        audit: "🛡️ ऑडिट एवं इतिहास"
+        overview: "एकीकृत डेटा पूल",
+        diary: "केस डायरी और BNSS समयरेखा",
+        legalIntel: "कानूनी विश्लेषण और नज़ीरें",
+        documents: "दस्तावेज़ निर्माण केंद्र (7)",
+        seizures: "मुद्दामल वॉल्ट",
+        sync: "CCTNS एवं अंतर-प्रणाली समन्वय",
+        audit: "ऑडिट एवं इतिहास"
       },
       generateDocBtn: "कानूनी दस्तावेज़ तैयार करें",
       downloadDocx: "DOCX डाउनलोड करें",
@@ -401,8 +401,8 @@ export const translations = {
       marks: "શારીરિક ઓળખ ચિહ્નો / ઘા",
       incidentNarrativeLabel: "બનાવની હકીકત (ગુજરાતી / હિન્દી / અંગ્રેજી)",
       narrativePlaceholder: "બનાવની સંપૂર્ણ વિગતો લખો... CrimeGPT AI આપમેળે લાગુ પડતી BNS કલમો અને કાનૂની જોગવાઈઓ સૂચવશે...",
-      analyzeBtn: "🧠 AI કાનૂની વિશ્લેષણ ચલાવો",
-      analyzing: "AI કાનૂની વિશ્લેષણ થઈ રહ્યું છે...",
+      analyzeBtn: "કાનૂની વિશ્લેષણ ચલાવો",
+      analyzing: "કાનૂની વિશ્લેષણ થઈ રહ્યું છે...",
       addItem: "જપ્ત કરેલ વસ્તુ ઉમેરો",
       itemName: "વસ્તુ / મુદ્દામાલનું નામ",
       itemCategory: "કેટેગરી",
@@ -417,13 +417,13 @@ export const translations = {
     },
     caseDetail: {
       tabs: {
-        overview: "📌 યુનિફાઇડ ડેટા પૂલ",
-        diary: "⏱️ કેસ ડાયરી અને BNSS ટાઈમલાઈન",
-        legalIntel: "🧠 કાનૂની બુદ્ધિમત્તા અને સુપ્રીમ કોર્ટ ચુકાદા",
-        documents: "📄 દસ્તાવેજ જનરેશન સેન્ટર (7)",
-        seizures: "📦 મુદ્દામાલ વૉલ્ટ",
-        sync: "🌐 CCTNS અને આંતર-પ્રણાલી સંકલન",
-        audit: "🛡️ ઓડિટ અને ઇતિહાસ"
+        overview: "યુનિફાઇડ ડેટા પૂલ",
+        diary: "કેસ ડાયરી અને BNSS ટાઈમલાઈન",
+        legalIntel: "કાનૂની વિશ્લેષણ અને કોર્ટ ચુકાદા",
+        documents: "દસ્તાવેજ જનરેશન સેન્ટર (7)",
+        seizures: "મુદ્દામાલ વૉલ્ટ",
+        sync: "CCTNS અને આંતર-પ્રણાલી સંકલન",
+        audit: "ઓડિટ અને ઇતિહાસ"
       },
       generateDocBtn: "કાનૂની દસ્તાવેજ બનાવો",
       downloadDocx: "DOCX ડાઉનલોડ કરો",

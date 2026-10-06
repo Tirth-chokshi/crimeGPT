@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   FolderSearch, Search, Filter, LayoutGrid, List, PlusCircle,
   FileText, Shield, Users, Clock, AlertTriangle, ArrowUpRight,
-  Sparkles, CheckCircle2, ChevronRight, Scale, Package, ExternalLink,
+  CheckCircle2, ChevronRight, Scale, Package, ExternalLink,
   MessageSquare, Printer, ShieldAlert, BadgeCheck
 } from "lucide-react";
 import { translations } from "../translations";
@@ -603,7 +603,7 @@ export default function CaseExplorerPage({
                     className="btn btn-primary"
                     style={{ fontSize: "12px" }}
                   >
-                    {copiedToast ? "✓ Copied to Clipboard!" : "Copy WhatsApp Message"}
+                    {copiedToast ? "Copied to Clipboard" : "Copy WhatsApp Message"}
                   </button>
                 </div>
               </div>
@@ -639,13 +639,13 @@ export default function CaseExplorerPage({
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px", flexWrap: "wrap", gap: "4px" }}>
                     <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#f8fafc" }}>{modalData?.query_name}</span>
                     <span className={`badge ${modalData?.history_sheeter ? 'badge-red' : 'badge-green'}`}>
-                      {modalData?.history_sheeter ? "⚠️ HISTORY SHEETER" : "✓ CLEAN RECORD"}
+                      {modalData?.history_sheeter ? "HISTORY SHEETER" : "CLEAN RECORD"}
                     </span>
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", fontSize: "11px" }}>
                     <div><b>NCRB ID:</b> <code style={{ color: "var(--police-blue)" }}>{modalData?.ncrb_crd_id || "NOT_LISTED"}</code></div>
-                    <div><b>Open Warrants:</b> {modalData?.open_warrant ? "🚨 Active Warrant" : "None"}</div>
+                    <div><b>Open Warrants:</b> {modalData?.open_warrant ? "Active Warrant" : "None"}</div>
                     <div><b>Interstate Links:</b> {modalData?.interstate_crime_links ? "Yes" : "No"}</div>
                     <div><b>Prior Cases:</b> {modalData?.prior_firs_count || 0} FIRs</div>
                   </div>

@@ -71,14 +71,14 @@ export default function CCTNSSyncPanel({
       }
 
       await new Promise((r) => setTimeout(r, 300));
-      addTerminalLog(`✔ Handshake verified. ICJS Bus Token: ${res.icjs_transaction_token}`, "success");
-      addTerminalLog(`✔ CCTNS Acknowledgment Generated: ${res.cctns_ack_no}`, "success");
+      addTerminalLog(`[OK] Handshake verified. ICJS Bus Token: ${res.icjs_transaction_token}`, "success");
+      addTerminalLog(`[OK] CCTNS Acknowledgment Generated: ${res.cctns_ack_no}`, "success");
       addTerminalLog("State Central Repository & Judiciary Bus updated successfully.", "success");
 
       showToast(`CCTNS Synced: ${res.cctns_ack_no}`);
       loadStatus();
     } catch (err) {
-      addTerminalLog(`❌ Sync failed: ${err.message}`, "error");
+      addTerminalLog(`[ERROR] Sync failed: ${err.message}`, "error");
       alert("CCTNS Sync error: " + err.message);
     } finally {
       setIsSyncing(false);
@@ -94,7 +94,7 @@ export default function CCTNSSyncPanel({
       await new Promise((r) => setTimeout(r, 500));
       const res = await api.pushToBharatpol(caseId);
 
-      addTerminalLog(`✔ Pushed ${res.total_records} accused records to BharatPol ICJS Gateway.`, "success");
+      addTerminalLog(`[OK] Pushed ${res.total_records} accused records to BharatPol ICJS Gateway.`, "success");
       res.records.forEach((r, idx) => {
         addTerminalLog(`  [Accused #${idx+1}] Bureau Ref: ${r.bureau_ref_id} • FP: ${r.fingerprint_record_id}`, "success");
       });
@@ -103,7 +103,7 @@ export default function CCTNSSyncPanel({
       showToast("Pushed to BharatPol National Criminal Database!");
       loadStatus();
     } catch (err) {
-      addTerminalLog(`❌ BharatPol Sync failed: ${err.message}`, "error");
+      addTerminalLog(`[ERROR] BharatPol Sync failed: ${err.message}`, "error");
       alert("BharatPol Sync error: " + err.message);
     } finally {
       setIsSyncing(false);
@@ -132,14 +132,14 @@ export default function CCTNSSyncPanel({
           officerName,
           officerBadge
         );
-        addTerminalLog(`✔ Registered: ${res.esakshya_reg_no} -> ${res.vault_uri}`, "success");
+        addTerminalLog(`[OK] Registered: ${res.esakshya_reg_no} -> ${res.vault_uri}`, "success");
       }
 
       addTerminalLog("All digital evidence items vaulted in national repository under BSA Sec 63.", "success");
       showToast("e-Sakshya batch sync completed successfully.");
       loadStatus();
     } catch (err) {
-      addTerminalLog(`❌ e-Sakshya sync error: ${err.message}`, "error");
+      addTerminalLog(`[ERROR] e-Sakshya sync error: ${err.message}`, "error");
       alert("e-Sakshya sync error: " + err.message);
     } finally {
       setIsSyncing(false);
